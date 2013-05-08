@@ -1,20 +1,66 @@
 ---
 !!map {
   ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ESMK/analyysi/tee_15_60_5kp_abf_pe.sh"
-  : !!float "2703.550631046295",
+  : !!map {
+    ? !!str "measured"
+    : !!float "0.0",
+  },
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ESMK/analyysi/tee_16_60_5kp_abf_pe_w.sh"
+  : !!map {
+    ? !!str "measured"
+    : !!float "0.0",
+  },
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ESMK/analyysi/tee_17_60_5kp_abf_pe_w_cmat.sh"
+  : !!map {
+    ? !!str "cellrem"
+    : !!int "2690",
+    ? !!str "elapsed"
+    : !!int "2790",
+    ? !!str "init"
+    : !!int "97",
+    ? !!str "measured"
+    : !!float "0.0",
+  },
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ESMK/analyysi/tee_18_60_5kp_abf_pe_w_cmat_cmete.sh"
+  : !!map {
+    ? !!str "cellrem"
+    : !!int "5502",
+    ? !!str "elapsed"
+    : !!int "5858",
+    ? !!str "init"
+    : !!int "349",
+    ? !!str "measured"
+    : !!float "0.0",
+  },
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ESMK/analyysi/tee_19_60_5kp_abf_pe_w_cmat_cmete_cres.sh"
+  : !!map {
+    ? !!str "cellrem"
+    : !!int "5554",
+    ? !!str "elapsed"
+    : !!int "6161",
+    ? !!str "init"
+    : !!int "600",
+    ? !!str "measured"
+    : !!float "0.0",
+  },
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ESMK/analyysi/tee_20_60_5kp_abf_pe_w_cmat_cmete_cres_mask.sh"
+  : !!map {
+    ? !!str "measured"
+    : !!float "0.0",
+  },
   ? !!str "sys_info"
   : !!seq [
     !!map {
       ? !!str "Report time"
-      : !!str "2013-05-06T16:09:03.351662",
+      : !!str "2013-05-08T17:58:42.955034",
     },
     !!map {
       ? !!str "Uname"
       : !!python/tuple [
         !!str "Linux",
         !!str "BIOTI25.site",
-        !!str "3.7.10-1.1-desktop",
-        !!str "#1 SMP PREEMPT Thu Feb 28 15:06:29 UTC 2013 (82d3f21)",
+        !!str "3.7.10-1.4-desktop",
+        !!str "#1 SMP PREEMPT Fri Apr 19 12:06:34 UTC 2013 (8ef74f8)",
         !!str "x86_64",
         !!str "x86_64",
       ],
