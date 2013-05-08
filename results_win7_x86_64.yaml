@@ -1,0 +1,84 @@
+---
+!!map {
+  ? !!str "C:\\Program Files\\zonation 3.1.9\\zonation-tutorial\\do_ADMU.bat"
+  : !!float "48.859999895095825",
+  ? !!str "C:\\Program Files\\zonation 3.1.9\\zonation-tutorial\\do_abf.bat"
+  : !!float "17.853999853134155",
+  ? !!str "C:\\Program Files\\zonation 3.1.9\\zonation-tutorial\\do_blp.bat"
+  : !!float "8.085999965667725",
+  ? !!str "C:\\Program Files\\zonation 3.1.9\\zonation-tutorial\\do_bqp.bat"
+  : !!float "640.2090001106262",
+  ? !!str "C:\\Program Files\\zonation 3.1.9\\zonation-tutorial\\do_comm_nosimilarity.bat"
+  : !!float "6.999000072479248",
+  ? !!str "C:\\Program Files\\zonation 3.1.9\\zonation-tutorial\\do_comm_original_rep.bat"
+  : !!float "0.4070000648498535",
+  ? !!str "C:\\Program Files\\zonation 3.1.9\\zonation-tutorial\\do_comm_similarity.bat"
+  : !!float "5.145999908447266",
+  ? !!str "C:\\Program Files\\zonation 3.1.9\\zonation-tutorial\\do_comm_sp.bat"
+  : !!float "10.470999956130981",
+  ? !!str "C:\\Program Files\\zonation 3.1.9\\zonation-tutorial\\do_condition.bat"
+  : !!float "6.9599997997283936",
+  ? !!str "C:\\Program Files\\zonation 3.1.9\\zonation-tutorial\\do_cost_ds.bat"
+  : !!float "16.493000030517578",
+  ? !!str "C:\\Program Files\\zonation 3.1.9\\zonation-tutorial\\do_ds.bat"
+  : !!float "16.325000047683716",
+  ? !!str "C:\\Program Files\\zonation 3.1.9\\zonation-tutorial\\do_load.bat"
+  : !!float "0.7109999656677246",
+  ? !!str "C:\\Program Files\\zonation 3.1.9\\zonation-tutorial\\do_multiple.bat"
+  : !!float "16.861999988555908",
+  ? !!str "C:\\Program Files\\zonation 3.1.9\\zonation-tutorial\\do_nqp.bat"
+  : !!float "8.496000051498413",
+  ? !!str "C:\\Program Files\\zonation 3.1.9\\zonation-tutorial\\do_ppa.bat"
+  : !!float "16.78499984741211",
+  ? !!str "C:\\Program Files\\zonation 3.1.9\\zonation-tutorial\\do_retention_m1.bat"
+  : !!float "10.394000053405762",
+  ? !!str "C:\\Program Files\\zonation 3.1.9\\zonation-tutorial\\do_rs.bat"
+  : !!float "12.782000064849854",
+  ? !!str "C:\\Program Files\\zonation 3.1.9\\zonation-tutorial\\do_ssi.bat"
+  : !!float "17.395999908447266",
+  ? !!str "C:\\Program Files\\zonation 3.1.9\\zonation-tutorial\\do_tbp.bat"
+  : !!float "17.474000215530396",
+  ? !!str "C:\\Program Files\\zonation 3.1.9\\zonation-tutorial\\do_towns.bat"
+  : !!float "17.53500008583069",
+  ? !!str "C:\\Program Files\\zonation 3.1.9\\zonation-tutorial\\do_uc.bat"
+  : !!float "17.79700016975403",
+  ? !!str "C:\\Program Files\\zonation 3.1.9\\zonation-tutorial\\do_w.bat"
+  : !!float "16.08399987220764",
+  ? !!str "C:\\Program Files\\zonation 3.1.9\\zonation-tutorial\\do_w_alu.bat"
+  : !!float "16.10599994659424",
+  ? !!str "C:\\Program Files\\zonation 3.1.9\\zonation-tutorial\\do_zig3.bat"
+  : !!float "9.136000156402588",
+  ? !!str "sys_info"
+  : !!seq [
+    !!map {
+      ? !!str "Report time"
+      : !!str "2013-05-06T14:42:21.489000",
+    },
+    !!map {
+      ? !!str "Uname"
+      : !!python/tuple [
+        !!str "Windows",
+        !!str "LH2-BIOTI25",
+        !!str "7",
+        !!str "6.1.7601",
+        !!str "AMD64",
+        !!str "Intel64 Family 6 Model 58 Stepping 9, GenuineIntel",
+      ],
+    },
+    !!map {
+      ? !!str "Version"
+      : !!python/tuple [
+        !!str "7",
+        !!str "6.1.7601",
+        !!str "SP1",
+        !!python/unicode "Multiprocessor Free",
+      ],
+    },
+  ],
+  ? !!str "z_info"
+  : !!python/tuple [
+    !!str "3",
+    !!str "1",
+    !!str "9",
+  ],
+}

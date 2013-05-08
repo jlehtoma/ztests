@@ -1,0 +1,38 @@
+---
+!!map {
+  ? !!str "C:\\Program Files\\zonation 3.1.9\\ESMK\\analyysi\\tee_15_60_5kp_abf_pe.bat"
+  : !!float "4845.5759999752045",
+  ? !!str "sys_info"
+  : !!seq [
+    !!map {
+      ? !!str "Report time"
+      : !!str "2013-05-06T18:21:42.735000",
+    },
+    !!map {
+      ? !!str "Uname"
+      : !!python/tuple [
+        !!str "Windows",
+        !!str "LH2-BIOTI25",
+        !!str "7",
+        !!str "6.1.7601",
+        !!str "AMD64",
+        !!str "Intel64 Family 6 Model 58 Stepping 9, GenuineIntel",
+      ],
+    },
+    !!map {
+      ? !!str "Version"
+      : !!python/tuple [
+        !!str "7",
+        !!str "6.1.7601",
+        !!str "SP1",
+        !!python/unicode "Multiprocessor Free",
+      ],
+    },
+  ],
+  ? !!str "z_info"
+  : !!python/tuple [
+    !!str "3",
+    !!str "1",
+    !!str "9",
+  ],
+}

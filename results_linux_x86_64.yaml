@@ -1,0 +1,83 @@
+---
+!!map {
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/zonation-tutorial/do_ADMU.bat"
+  : !!float "14.018994092941284",
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/zonation-tutorial/do_abf.bat"
+  : !!float "3.979027032852173",
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/zonation-tutorial/do_blp.bat"
+  : !!float "3.316301107406616",
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/zonation-tutorial/do_bqp.bat"
+  : !!float "543.1861340999603",
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/zonation-tutorial/do_comm_nosimilarity.bat"
+  : !!float "3.1529700756073",
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/zonation-tutorial/do_comm_original_rep.bat"
+  : !!float "0.09684205055236816",
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/zonation-tutorial/do_comm_similarity.bat"
+  : !!float "3.007772922515869",
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/zonation-tutorial/do_comm_sp.bat"
+  : !!float "3.8808188438415527",
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/zonation-tutorial/do_condition.bat"
+  : !!float "3.120089054107666",
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/zonation-tutorial/do_cost_ds.bat"
+  : !!float "5.939458131790161",
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/zonation-tutorial/do_ds.bat"
+  : !!float "5.766906976699829",
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/zonation-tutorial/do_load.bat"
+  : !!float "6.939545154571533",
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/zonation-tutorial/do_multiple.bat"
+  : !!float "3.845101833343506",
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/zonation-tutorial/do_nqp.bat"
+  : !!float "4.410138130187988",
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/zonation-tutorial/do_ppa.bat"
+  : !!float "11.633924007415771",
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/zonation-tutorial/do_retention_m1.bat"
+  : !!float "3.7264719009399414",
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/zonation-tutorial/do_rs.bat"
+  : !!float "5.351215839385986",
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/zonation-tutorial/do_ssi.bat"
+  : !!float "4.720854997634888",
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/zonation-tutorial/do_tbp.bat"
+  : !!float "4.641016006469727",
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/zonation-tutorial/do_towns.bat"
+  : !!float "6.556442022323608",
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/zonation-tutorial/do_uc.bat"
+  : !!float "6.228039026260376",
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/zonation-tutorial/do_w.bat"
+  : !!float "4.317234992980957",
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/zonation-tutorial/do_w_alu.bat"
+  : !!float "3.891572952270508",
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/zonation-tutorial/do_zig3.bat"
+  : !!float "3.6006929874420166",
+  ? !!str "sys_info"
+  : !!seq [
+    !!map {
+      ? !!str "Report time"
+      : !!str "2013-05-06T15:10:58.629562",
+    },
+    !!map {
+      ? !!str "Uname"
+      : !!python/tuple [
+        !!str "Linux",
+        !!str "BIOTI25.site",
+        !!str "3.7.10-1.1-desktop",
+        !!str "#1 SMP PREEMPT Thu Feb 28 15:06:29 UTC 2013 (82d3f21)",
+        !!str "x86_64",
+        !!str "x86_64",
+      ],
+    },
+    !!map {
+      ? !!str "Version"
+      : !!python/tuple [
+        !!str "openSUSE ",
+        !!str "12.3",
+        !!str "x86_64",
+      ],
+    },
+  ],
+  ? !!str "z_info"
+  : !!python/tuple [
+    !!str "3",
+    !!str "1",
+    !!str "9",
+  ],
+}
