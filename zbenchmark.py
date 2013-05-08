@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 import argparse
 import datetime
@@ -9,6 +10,7 @@ from subprocess import Popen, PIPE
 import sys
 import time
 
+from zparser import parse_results
 
 def get_system_info():
     ''' Function to retrieve system related information.
@@ -106,7 +108,7 @@ def run_analysis(file_path, cmd_args):
     @param name String name of the analysis being run
     @param cmd_args list of Zonation command line arguments
 
-    @return total double seconds of analysis runtime
+    @return elapsed_times dict of seconds of analysis runtime
     '''
 
     t0 = time.time()
@@ -116,7 +118,14 @@ def run_analysis(file_path, cmd_args):
 
     total = t1 - t0
 
-    return total
+    # Get also the times reported by Zonation. Output name pattern is the 5th item in the bat/sh
+    # file
+    output_filepath = cmd_args[4].replace('.txt', '.run_info.txt')
+    output_filepath = os.path.join(os.path.dirname(file_path), output_filepath)
+    elapsed_times = parse_results(output_filepath)
+    elapsed_times['measured'] = round(total, 0)
+
+    return elapsed_times
 
 
 def write_output(output_data, output_file=None, silent=False, print_width=80):
@@ -132,8 +141,9 @@ def write_output(output_data, output_file=None, silent=False, print_width=80):
         keys.sort()
         for key in keys:
             if key not in ['sys_info', 'z_info']:
-                pprint('{0}: {1} seconds'.format(key, round(output_data[key], 2)),
-                       width=print_width)
+                print('{0}:'.format(key))
+                print('in seconds')
+                pprint(output_data[key], width=print_width)
     if output_file:
         import yaml
         with open(output_file, 'w') as outfile:
