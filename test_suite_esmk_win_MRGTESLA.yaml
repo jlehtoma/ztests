@@ -1,0 +1,7 @@
+benchmark_analyses:
+- "C:/Data/ESMK/analyysit/ee_15_60_5kp_abf_pe.sh"
+- "C:/Data/ESMK/analyysi/tee_16_60_5kp_abf_pe_w.sh"
+- "C:/Data/ESMK/analyysi/tee_17_60_5kp_abf_pe_w_cmat.sh"
+- "C:/Data/ESMK/analyysi/tee_18_60_5kp_abf_pe_w_cmat_cmete.sh"
+- "C:/Data/ESMK/analyysi/tee_19_60_5kp_abf_pe_w_cmat_cmete_cres.sh"
+- "C:/Data/ESMK/analyysi/tee_20_60_5kp_abf_pe_w_cmat_cmete_cres_mask.sh"
