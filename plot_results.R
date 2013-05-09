@@ -7,18 +7,14 @@ library(yaml)
 
 setwd("C:/Users/localadmin_jlehtoma/Documents/GitHub/ztests")
 
-dat.linux <- yaml.load_file("results_esmk_linux_x86_64.yaml")
 dat.win <- yaml.load_file("results_esmk_win7_x86_64.yaml")
 
 
 # 2. Read in the data -----------------------------------------------------
 
-# Get all keys
-runs.linux <- names(dat.linux)
-runs.win <- names(dat.win)
-# Keep only the bat-paths
-runs.linux <- runs.linux[grepl("^/home.*\\.sh", runs.linux)]
-runs.win <- runs.win[grepl("*\\.bat", runs.win)]
+col.as.numeric <- function(x) {
+  return(as.numeric(as.character(x)) )
+}
 
 get.times <- function(file.name, data) {
   run.name <- basename(file.name)
@@ -28,19 +24,34 @@ get.times <- function(file.name, data) {
   return(c(run.name, unlist(data[file.name], use.names=FALSE)))
 }
 
-col.as.numeric <- function(x) {
-  return(as.numeric(as.character(x)) )
+yaml2df <- function(x) {
+  
+  dat <- yaml.load_file(x)
+  
+  # Get all keys
+  runs <- names(dat)
+  # Keep only the bat/sh-paths
+  if (grepl("^/home.*\\.sh")) {
+    pattern <- "^/home.*\\.sh"
+  } else {
+    pattern <- "*\\.bat"
+  }
+  runs <- runs[grepl(pattern, runs)]
+  
+  header <- c("run", "cellrem", "elapsed", "init", "measured")
+  
+  df.dat <- data.frame(do.call("rbind", lapply(runs, get.times, dat)))
+  colnames(df.dat) <- header
+  df.dat$cellrem <- col.as.numeric(df.dat$cellrem) 
+  df.dat$elapsed <- col.as.numeric(df.dat$elapsed)
+  df.dat$init <- col.as.numeric(df.dat$init)
+  df.dat$measured <- col.as.numeric(df.dat$measured)
+  
+  return(df.dat)
 }
 
-header <- c("run", "cellrem", "elapsed", "init", "measured")
-
-df.linux <- data.frame(do.call("rbind", lapply(runs.linux, get.times, 
-                                               dat.linux)))
-colnames(df.linux) <- header
-df.linux$cellrem <- col.as.numeric(df.linux$cellrem) 
-df.linux$elapsed <- col.as.numeric(df.linux$elapsed)
-df.linux$init <- col.as.numeric(df.linux$init)
-df.linux$measured <- col.as.numeric(df.linux$measured)
+df.linux.mrgsite25 <- yaml2df("results_esmk_linux_x86_64.yaml")
+df.win.mrgtesla <- yaml2df("results_esmk_linux_x86_64.yaml")
 
 #df.win <- data.frame(do.call("rbind", lapply(runs.win, get.times, dat.win)))
 #colnames(df.win) <- header
