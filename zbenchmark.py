@@ -57,7 +57,6 @@ def read_run(file_list):
 
     If an item in the list does not exist, it is removed from the file list.
     '''
-
     cmd_sequences = {}
 
     for file_path in file_list:

@@ -2,57 +2,75 @@
 !!map {
   ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ESMK/analyysi/tee_15_60_5kp_abf_pe.sh"
   : !!map {
+    ? !!str "cellrem"
+    : !!int "2599",
+    ? !!str "elapsed"
+    : !!int "2606",
+    ? !!str "init"
+    : !!int "6",
     ? !!str "measured"
-    : !!float "0.0",
+    : !!float "2607.0",
   },
   ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ESMK/analyysi/tee_16_60_5kp_abf_pe_w.sh"
   : !!map {
+    ? !!str "cellrem"
+    : !!int "2548",
+    ? !!str "elapsed"
+    : !!int "2555",
+    ? !!str "init"
+    : !!int "6",
     ? !!str "measured"
-    : !!float "0.0",
+    : !!float "2556.0",
   },
   ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ESMK/analyysi/tee_17_60_5kp_abf_pe_w_cmat.sh"
   : !!map {
     ? !!str "cellrem"
-    : !!int "2690",
+    : !!int "2580",
     ? !!str "elapsed"
-    : !!int "2790",
+    : !!int "2674",
     ? !!str "init"
-    : !!int "97",
+    : !!int "92",
     ? !!str "measured"
-    : !!float "0.0",
+    : !!float "2675.0",
   },
   ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ESMK/analyysi/tee_18_60_5kp_abf_pe_w_cmat_cmete.sh"
   : !!map {
     ? !!str "cellrem"
-    : !!int "5502",
+    : !!int "5426",
     ? !!str "elapsed"
-    : !!int "5858",
+    : !!int "5782",
     ? !!str "init"
-    : !!int "349",
+    : !!int "351",
     ? !!str "measured"
-    : !!float "0.0",
+    : !!float "5783.0",
   },
   ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ESMK/analyysi/tee_19_60_5kp_abf_pe_w_cmat_cmete_cres.sh"
   : !!map {
     ? !!str "cellrem"
-    : !!int "5554",
+    : !!int "5363",
     ? !!str "elapsed"
-    : !!int "6161",
+    : !!int "5955",
     ? !!str "init"
-    : !!int "600",
+    : !!int "587",
     ? !!str "measured"
-    : !!float "0.0",
+    : !!float "5956.0",
   },
   ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ESMK/analyysi/tee_20_60_5kp_abf_pe_w_cmat_cmete_cres_mask.sh"
   : !!map {
+    ? !!str "cellrem"
+    : !!int "5259",
+    ? !!str "elapsed"
+    : !!int "5852",
+    ? !!str "init"
+    : !!int "589",
     ? !!str "measured"
-    : !!float "0.0",
+    : !!float "5853.0",
   },
   ? !!str "sys_info"
   : !!seq [
     !!map {
       ? !!str "Report time"
-      : !!str "2013-05-08T17:58:42.955034",
+      : !!str "2013-05-08T18:02:29.150642",
     },
     !!map {
       ? !!str "Uname"
