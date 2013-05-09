@@ -2,15 +2,7 @@ library(ggplot2)
 library(reshape2)
 library(yaml)
 
-
-# 1. Setup ----------------------------------------------------------------
-
-setwd("C:/Users/localadmin_jlehtoma/Documents/GitHub/ztests")
-
-dat.win <- yaml.load_file("results_esmk_win7_x86_64.yaml")
-
-
-# 2. Read in the data -----------------------------------------------------
+# Helper functions --------------------------------------------------------
 
 col.as.numeric <- function(x) {
   return(as.numeric(as.character(x)) )
@@ -31,63 +23,61 @@ yaml2df <- function(x) {
   # Get all keys
   runs <- names(dat)
   # Keep only the bat/sh-paths
-  if (grepl("^/home.*\\.sh")) {
+  if (any(grepl("^/home.*\\.sh", runs))) {
     pattern <- "^/home.*\\.sh"
   } else {
     pattern <- "*\\.bat"
   }
   runs <- runs[grepl(pattern, runs)]
   
+  # Column order is already fixed
   header <- c("run", "cellrem", "elapsed", "init", "measured")
   
   df.dat <- data.frame(do.call("rbind", lapply(runs, get.times, dat)))
   colnames(df.dat) <- header
+  # Coerce the numeric columns to really numeric
   df.dat$cellrem <- col.as.numeric(df.dat$cellrem) 
   df.dat$elapsed <- col.as.numeric(df.dat$elapsed)
   df.dat$init <- col.as.numeric(df.dat$init)
   df.dat$measured <- col.as.numeric(df.dat$measured)
   
+  # Get the machine information
+  df.dat$machine <- paste0(dat$sys_info[[2]]$Uname[[2]], " (", 
+                           dat$sys_info[[2]]$Uname[[1]], ")")
+  
   return(df.dat)
 }
 
+# 1. Setup ----------------------------------------------------------------
+
+setwd("C:/Users/localadmin_jlehtoma/Documents/GitHub/ztests")
+
+# 2. Read in the data -----------------------------------------------------
+
 df.linux.mrgsite25 <- yaml2df("results_esmk_linux_x86_64.yaml")
-df.win.mrgtesla <- yaml2df("results_esmk_linux_x86_64.yaml")
+df.win.mrgtesla <- yaml2df("results_esmk_win_MRGTESLA_x86_64.yaml")
 
-#df.win <- data.frame(do.call("rbind", lapply(runs.win, get.times, dat.win)))
-#colnames(df.win) <- header
-
+# Merge all data
+df.dat <- rbind(df.linux.mrgsite25, df.win.mrgtesla)
 
 # 3. Stats ----------------------------------------------------------------
 
-(mean(time.data$linux / time.data$win))
-
+(df.linux.mrgsite25$elapsed / df.win.mrgtesla$elapsed)
+(mean(df.linux.mrgsite25$elapsed / df.win.mrgtesla$elapsed))
+(sd(df.linux.mrgsite25$elapsed / df.win.mrgtesla$elapsed))
 
 # 4. Plotting -------------------------------------------------------------
 
-
 # 4.1 Total elapsed time --------------------------------------------------
 
-# Linux
-p <- ggplot(df.linux, aes(y=elapsed, x=run)) + 
+p <- ggplot(df.dat, aes(y=elapsed, x=run, fill=machine)) + 
      geom_bar(position="dodge", stat="identity")
-p + theme(axis.text.x = element_text(angle = 45, hjust = 1)) + ylab("Seconds") 
+p + theme(axis.text.x = element_text(angle = 45, hjust = 1)) + ylab("Seconds") +
+  ggtitle("Total elapsed time")
 
-p <- ggplot(df.linux, aes(y=init, x=run)) + 
+# 4.2 Init -----------------------------------------------------------
+
+p <- ggplot(df.dat, aes(y=init, x=run, fill=machine)) + 
   geom_bar(position="dodge", stat="identity")
-p + theme(axis.text.x = element_text(angle = 45, hjust = 1)) + ylab("Seconds")
-
-# 4.2 Per stage -----------------------------------------------------------
-
-
-
-m.time.data <- melt(time.data, variable.name="OS")
-
-p <- ggplot(m.time.data, aes(y=value, x=run, fill=OS)) + 
-      geom_bar(position="dodge", stat="identity")
-p + theme(axis.text.x = element_text(angle = 90, hjust = 1)) + ylab("Seconds")
-
-# Without BQP
-m.time.data.nobqp <- m.time.data[-which(m.time.data$run == "do_bqp.bat"),]
-p <- ggplot(m.time.data.nobqp, aes(y=value, x=run, fill=OS)) + 
-  geom_bar(position="dodge", stat="identity")
-p + theme(axis.text.x = element_text(angle = 90, hjust = 1)) + ylab("Seconds")
+p + theme(axis.text.x = element_text(angle = 45, hjust = 1)) + ylab("Seconds") +
+  ggtitle("Initiation stage")
