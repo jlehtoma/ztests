@@ -1,0 +1,7 @@
+benchmark_analyses:
+- "C:/Program Files/zonation 3.1.9/ESMK/analyysi/tee_15_60_5kp_abf_pe.bat"
+- "C:/Program Files/zonation 3.1.9/ESMK/analyysi/tee_16_60_5kp_abf_pe_w.bat"
+- "C:/Program Files/zonation 3.1.9/ESMK/analyysi/tee_17_60_5kp_abf_pe_w_cmat.bat"
+- "C:/Program Files/zonation 3.1.9/ESMK/analyysi/tee_18_60_5kp_abf_pe_w_cmat_cmete.bat"
+- "C:/Program Files/zonation 3.1.9/ESMK/analyysi/tee_19_60_5kp_abf_pe_w_cmat_cmete_cres.bat"
+- "C:/Program Files/zonation 3.1.9/ESMK/analyysi/tee_20_60_5kp_abf_pe_w_cmat_cmete_cres_mask.bat"
