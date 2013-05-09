@@ -1,0 +1,72 @@
+---
+!!map {
+  ? !!str "C:\\Program Files\\zonation 3.1.9\\ESMK\\analyysi\\tee_15_60_5kp_abf_pe.bat"
+  : !!map {
+    ? !!str "cellrem"
+    : !!int "5038",
+    ? !!str "elapsed"
+    : !!int "5048",
+    ? !!str "init"
+    : !!int "6",
+    ? !!str "measured"
+    : !!float "0.0",
+  },
+  ? !!str "C:\\Program Files\\zonation 3.1.9\\ESMK\\analyysi\\tee_16_60_5kp_abf_pe_w.bat"
+  : !!map {
+    ? !!str "measured"
+    : !!float "0.0",
+  },
+  ? !!str "C:\\Program Files\\zonation 3.1.9\\ESMK\\analyysi\\tee_17_60_5kp_abf_pe_w_cmat.bat"
+  : !!map {
+    ? !!str "measured"
+    : !!float "0.0",
+  },
+  ? !!str "C:\\Program Files\\zonation 3.1.9\\ESMK\\analyysi\\tee_18_60_5kp_abf_pe_w_cmat_cmete.bat"
+  : !!map {
+    ? !!str "measured"
+    : !!float "0.0",
+  },
+  ? !!str "C:\\Program Files\\zonation 3.1.9\\ESMK\\analyysi\\tee_19_60_5kp_abf_pe_w_cmat_cmete_cres.bat"
+  : !!map {
+    ? !!str "measured"
+    : !!float "0.0",
+  },
+  ? !!str "C:\\Program Files\\zonation 3.1.9\\ESMK\\analyysi\\tee_20_60_5kp_abf_pe_w_cmat_cmete_cres_mask.bat"
+  : !!map {
+    ? !!str "measured"
+    : !!float "0.0",
+  },
+  ? !!str "sys_info"
+  : !!seq [
+    !!map {
+      ? !!str "Report time"
+      : !!str "2013-05-09T13:31:57.170000",
+    },
+    !!map {
+      ? !!str "Uname"
+      : !!python/tuple [
+        !!str "Windows",
+        !!str "LH2-BIOTI25",
+        !!str "7",
+        !!str "6.1.7601",
+        !!str "AMD64",
+        !!str "Intel64 Family 6 Model 58 Stepping 9, GenuineIntel",
+      ],
+    },
+    !!map {
+      ? !!str "Version"
+      : !!python/tuple [
+        !!str "7",
+        !!str "6.1.7601",
+        !!str "SP1",
+        !!python/unicode "Multiprocessor Free",
+      ],
+    },
+  ],
+  ? !!str "z_info"
+  : !!python/tuple [
+    !!str "3",
+    !!str "1",
+    !!str "9",
+  ],
+}
