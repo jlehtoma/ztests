@@ -1,0 +1,102 @@
+---
+!!map {
+  ? !!str "C:\\Data\\ESMK\\analyysi\\tee_15_60_5kp_abf_pe.bat"
+  : !!map {
+    ? !!str "cellrem"
+    : !!int "6290",
+    ? !!str "elapsed"
+    : !!int "6306",
+    ? !!str "init"
+    : !!int "8",
+    ? !!str "measured"
+    : !!float "6307.0",
+  },
+  ? !!str "C:\\Data\\ESMK\\analyysi\\tee_16_60_5kp_abf_pe_w.bat"
+  : !!map {
+    ? !!str "cellrem"
+    : !!int "6468",
+    ? !!str "elapsed"
+    : !!int "6483",
+    ? !!str "init"
+    : !!int "9",
+    ? !!str "measured"
+    : !!float "6484.0",
+  },
+  ? !!str "C:\\Data\\ESMK\\analyysi\\tee_17_60_5kp_abf_pe_w_cmat.bat"
+  : !!map {
+    ? !!str "cellrem"
+    : !!int "6365",
+    ? !!str "elapsed"
+    : !!int "6549",
+    ? !!str "init"
+    : !!int "174",
+    ? !!str "measured"
+    : !!float "6550.0",
+  },
+  ? !!str "C:\\Data\\ESMK\\analyysi\\tee_18_60_5kp_abf_pe_w_cmat_cmete.bat"
+  : !!map {
+    ? !!str "cellrem"
+    : !!int "14567",
+    ? !!str "elapsed"
+    : !!int "15213",
+    ? !!str "init"
+    : !!int "624",
+    ? !!str "measured"
+    : !!float "15214.0",
+  },
+  ? !!str "C:\\Data\\ESMK\\analyysi\\tee_19_60_5kp_abf_pe_w_cmat_cmete_cres.bat"
+  : !!map {
+    ? !!str "cellrem"
+    : !!int "14447",
+    ? !!str "elapsed"
+    : !!int "15541",
+    ? !!str "init"
+    : !!int "1079",
+    ? !!str "measured"
+    : !!float "15542.0",
+  },
+  ? !!str "C:\\Data\\ESMK\\analyysi\\tee_20_60_5kp_abf_pe_w_cmat_cmete_cres_mask.bat"
+  : !!map {
+    ? !!str "cellrem"
+    : !!int "14498",
+    ? !!str "elapsed"
+    : !!int "15597",
+    ? !!str "init"
+    : !!int "1075",
+    ? !!str "measured"
+    : !!float "15598.0",
+  },
+  ? !!str "sys_info"
+  : !!seq [
+    !!map {
+      ? !!str "Report time"
+      : !!str "2013-05-08T18:05:49.937000",
+    },
+    !!map {
+      ? !!str "Uname"
+      : !!python/tuple [
+        !!str "Windows",
+        !!str "MRGTESLA",
+        !!str "post2008Server",
+        !!str "6.1.7601",
+        !!str "x86",
+        !!str "Intel64 Family 6 Model 44 Stepping 2, GenuineIntel",
+      ],
+    },
+    !!map {
+      ? !!str "Version"
+      : !!python/tuple [
+        !!str "post2008Server",
+        !!str "6.1.7601",
+        !!str "SP1",
+        !!str "Multiprocessor Free",
+      ],
+    },
+  ],
+  ? !!str "z_info"
+  : !!python/tuple [
+    !!str "3",
+    !!str "1",
+    !!str "7",
+  ],
+}
