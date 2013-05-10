@@ -6,3 +6,5 @@ RAM: 8.0 GB
 
 ## MRGTESLA
 
+Processor: Intel(R) Xeon(R) CPU X5650  @ 2.67GHz, 2660 Mhz, 6 Core(s), 12 Logical Processor(s)
+Processor: Intel(R) Xeon(R) CPU X5650  @ 2.67GHz, 2660 Mhz, 6 Core(s), 12 Logical Processor(s)
