@@ -3,14 +3,16 @@
 
 import glob
 import os
+from pprint import pprint
 import sys
 
 import gdal
 from gdalconst import *
 import numpy
+from scipy.stats.mstats import mquantiles
+import yaml
 
-
-def compare_rasters(raster_dataset_1, raster_dataset_2, tolerance=1e-08):
+def raster_differences(raster_dataset_1, raster_dataset_2, tolerance=1e-08):
     ''' Compares the values of two rasters given a certain treshold.
 
     The default tolerance value is the same as the one used by numpy.allclose.
@@ -18,8 +20,10 @@ def compare_rasters(raster_dataset_1, raster_dataset_2, tolerance=1e-08):
     @param raster_dataset_1 GDAL dataset
     @param raster_dataset_2 GDAL dataset
     @param tolerance double defining the raster similarity tolerance (see http://docs.scipy.org/doc/numpy/reference/generated/numpy.allclose.html)
-    @return equal boolean indicating if the raster values are the same (or similar enough)
+    @return differences dict holding information on the potential differences
     '''
+
+    differences = {}
 
     print("INFO: Extracting bands from the first dataset...")
     band_1 = raster_dataset_1.GetRasterBand(1)
@@ -35,7 +39,18 @@ def compare_rasters(raster_dataset_1, raster_dataset_2, tolerance=1e-08):
 
     print("INFO: Comparing values...")
     equal = numpy.allclose(data_1, data_2, atol=tolerance)
-    return equal
+
+    if not equal:
+        print("WARNING: Raster dataset values not equal at {0} tolerance".format(tolerance))
+        diff = data_1 - data_2
+
+        differences['max'] = float(numpy.max(diff))
+        differences['min'] = float(numpy.min(diff))
+        differences['mean'] = float(numpy.mean(diff))
+        differences['std'] = float(numpy.std(diff))
+        differences['quantiles'] = [float(item) for item in mquantiles(diff)]
+
+    return differences
 
 
 def raster_pairs(folder1, folder2, suffix='', ext=''):
@@ -60,28 +75,51 @@ def raster_pairs(folder1, folder2, suffix='', ext=''):
         print('ERROR: No suitable files (pattern: {0}) found in folder 2'.format(pattern))
         sys.exit(0)
 
+    for raster in rasters_1:
+        if os.path.basename(raster) not in [os.path.basename(item) for item in rasters_2]:
+            print('WARNING: Raster {0} not found in other folder'.format(os.path.basename(raster)))
+            pprint(rasters_2)
+
+            rasters_1.remove(raster)
+    
+    if not rasters_1:
+        print('ERROR: none of the rasters in folder 1 found in folder 2')
+        sys.exit(0)
+
     # FIXME: what if the lists are different lenghts?
     return zip(rasters_1, rasters_2)
 
-folder_1 = '/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ESMK/analyysi/15_60_5kp_abf_pe/output/'
-folder_2 = '/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ESMK/analyysi/15_60_5kp_abf_pe_WIN/output/'
+if __name__ == '__main__':
 
-pairs = raster_pairs(folder_1, folder_2, suffix='.rank.*', ext='.img')
+    folder_1 = '/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ESMK/analyysi/output_linux'
+    folder_2 = '/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ESMK/analyysi/output_win'
 
-comparisons = []
+    pairs = raster_pairs(folder_1, folder_2, suffix='.rank.*', ext='.img')
 
-for pair in pairs:
-    print("INFO: Reading in Linux result dataset...")
-    raster_dataset1 = gdal.Open(pair[0], GA_ReadOnly)
-    print("INFO: Reading in Windows result dataset...")
-    raster_dataset2 = gdal.Open(pair[0], GA_ReadOnly)
+    all_differences = []
 
-    comparisons.append(compare_rasters(raster_dataset1, raster_dataset1))
+    for pair in pairs:
 
-if all(comparisons):
-    print("INFO: All values in all pairs seem to be the same")
-else:
-    print("WARNING: Some pairs seem to differ")
-    for i, item in enumerate(comparisons):
-        if not comparisons[i]:
-            print(item)
+        if os.path.basename(pair[0]) != os.path.basename(pair[1]):
+            print('WARNING: comparing raster datasets ')
+
+        print("INFO: Reading in FIRST dataset {0}".format(pair[0]))
+        raster_dataset1 = gdal.Open(pair[0], GA_ReadOnly)
+        print("INFO: Reading in SECOND dataset {0}".format(pair[1]))
+        raster_dataset2 = gdal.Open(pair[1], GA_ReadOnly)
+
+        differences = raster_differences(raster_dataset1, raster_dataset2)
+        differences['file1'] = pair[0]
+        differences['file2'] = pair[1]
+
+        all_differences.append(differences)
+
+    for diff in all_differences:
+        if diff:
+            pprint(diff)
+        else:
+            print("INFO: All values in all pairs seem to be the same")
+
+    output_file = 'raster_differences.yaml'
+    with open(output_file, 'w') as outfile:
+            outfile.write(yaml.dump(all_differences, canonical=True))

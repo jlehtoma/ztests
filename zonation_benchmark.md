@@ -35,8 +35,8 @@ All variants are run using:
 
 Different analysis options used:
 
-<!-- html table generated in R 2.15.2 by xtable 1.7-1 package -->
-<!-- Fri May 10 10:16:00 2013 -->
+<!-- html table generated in R 3.0.0 by xtable 1.7-1 package -->
+<!-- Fri May 10 13:13:38 2013 -->
 <TABLE border=1>
 <TR> <TH>  </TH> <TH> id </TH> <TH> nfeatures </TH> <TH> weights </TH> <TH> condition </TH> <TH> cmatrix </TH> <TH> cwkh </TH> <TH> cres </TH> <TH> mask </TH>  </TR>
   <TR> <TD align="right"> 1 </TD> <TD align="right">  15 </TD> <TD align="right"> 20.00 </TD> <TD> no </TD> <TD> yes </TD> <TD> no </TD> <TD> no </TD> <TD> no </TD> <TD> no </TD> </TR>
@@ -97,8 +97,8 @@ resulting run-info file, so they are the ones reported by Zonation.
 
 Out of these comparisons, the Linux machine performs the fastest. By scaling 
 MRGTESLA to 1.0, the others perform in a following way:
-<!-- html table generated in R 2.15.2 by xtable 1.7-1 package -->
-<!-- Fri May 10 10:16:01 2013 -->
+<!-- html table generated in R 3.0.0 by xtable 1.7-1 package -->
+<!-- Fri May 10 13:13:38 2013 -->
 <TABLE border=1>
 <TR> <TH>  </TH> <TH> MRGTESLA.win </TH> <TH> LH2BIOTI25.win </TH> <TH> LH2BIOTI25.linux </TH>  </TR>
   <TR> <TD align="right"> 1 </TD> <TD align="right"> 1.00 </TD> <TD align="right"> 0.76 </TD> <TD align="right"> 0.41 </TD> </TR>
@@ -111,8 +111,8 @@ MRGTESLA to 1.0, the others perform in a following way:
 
 Comparing Zonation on different operating systems on the same machine show the
 following:
-<!-- html table generated in R 2.15.2 by xtable 1.7-1 package -->
-<!-- Fri May 10 10:16:01 2013 -->
+<!-- html table generated in R 3.0.0 by xtable 1.7-1 package -->
+<!-- Fri May 10 13:13:38 2013 -->
 <TABLE border=1>
 <TR> <TH>  </TH> <TH> LH2BIOTI25.win </TH> <TH> LH2BIOTI25.linux </TH>  </TR>
   <TR> <TD align="right"> 1 </TD> <TD align="right"> 1.00 </TD> <TD align="right"> 0.54 </TD> </TR>

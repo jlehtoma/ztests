@@ -63,6 +63,8 @@ df.linux.mrgsite25$machine <- "LH2-BIOTI25 (Linux)"
 
 # Merge all data
 df.dat <- rbind(df.linux.mrgsite25, df.win.mrgsite25, df.win.mrgtesla)
+# Set upt the run info as factors
+df.dat$run <- factor(rep(15:20, 3))
 
 # 3. Stats ----------------------------------------------------------------
 
@@ -74,8 +76,8 @@ df.dat <- rbind(df.linux.mrgsite25, df.win.mrgsite25, df.win.mrgtesla)
 
 # 4.1 Total elapsed time --------------------------------------------------
 
-p <- ggplot(df.dat, aes(y=elapsed, x=run, fill=machine)) + 
-     geom_bar(position="dodge", stat="identity")
+p <- ggplot(df.dat, aes(elapsed, x=run, fill=machine, group=machine)) + 
+     geom_bar(stat="identity", position="dodge")
 p + theme(axis.text.x = element_text(size=18)) + ylab("Seconds") + xlab("Run") +
   scale_x_discrete(labels=c(15:20)) + ggtitle("Total elapsed time")
 
@@ -85,3 +87,8 @@ p <- ggplot(df.dat, aes(y=init, x=run, fill=machine)) +
   geom_bar(position="dodge", stat="identity")
 p + theme(axis.text.x = element_text(angle = 45, hjust = 1)) + ylab("Seconds") +
   ggtitle("Initiation stage")
+
+
+# 5. Result comparison ----------------------------------------------------
+
+diffs <- yaml.load_file("raster_differences.yaml")
