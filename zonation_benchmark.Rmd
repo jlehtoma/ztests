@@ -77,14 +77,36 @@ print(xtable(variants), type='html')
 
 ### Machines
 
+Machines 1 and 2 are the same computer runinng with different OS.
+
 1. **LH2-BIOTI25 (Linux)**  
-**Model**: HP EliteBook Folio 9470M  
+**Model**: HP EliteBook Folio 9470M Laptop  
 **OS**: openSUSE 12.3 x86_64 (kernel version 3.7.10-1.4-desktop)  
 **Specs**:
   * RAM: 8 GB
-  * CPU: 
+  * CPU: Intel(R) Core(TM) i7-3667U CPU @ 2.00GHz, 2501 Mhz, 2 Core(s), 4 Logical Processor(s)
+  * Hard-disk: ~256 GB SSD
+  
+1. **LH2-BIOTI25 (Windows)**  
+**Model**: HP EliteBook Folio 9470M Laptop  
+**OS**:  Windows 7 (version 6.1.7601)  
+**Specs**:
+  * RAM: 8 GB
+  * CPU: Intel(R) Core(TM) i7-3667U CPU @ 2.00GHz, 2501 Mhz, 2 Core(s), 4 Logical Processor(s)  
+  * Hard-disk: ~256 GB SSD  
+  
+1. **MRGTESLA (Windows)**  
+**Model**: Dell Precision T7500 Workstation  
+**OS**:  Windows 7 (version 6.1.7601, post2008Server)  
+**Specs**:
+  * RAM: 92 GB
+  * CPU (2x): Processor: Intel(R) Xeon(R) CPU X5650  @ 2.67GHz, 2660 Mhz, 6 Core(s), 12 Logical Processor(s)
+  * Hard-disk: ~500 GB SAS RAID disk array (10 000 rpm)
 
 ### Benchmark
+
+All analysis runs were run 1 at a time. All time measures are parsed from the
+resulting run-info file, so they are the ones reported by Zonation.
 
 ```{r data-pre-processing, echo=FALSE}
 
@@ -99,18 +121,48 @@ df.linux.mrgsite25$machine <- "LH2-BIOTI25 (Linux)"
 df.dat <- rbind(df.linux.mrgsite25, df.win.mrgsite25, df.win.mrgtesla)
 ```
 
-```{r stats, echo=FALSE}
-```
 
-```{r plotting, echo=FALSE}
+```{r plotting-elapsed, echo=FALSE}
 
 p <- ggplot(df.dat, aes(y=elapsed, x=run, fill=machine)) + 
      geom_bar(position="dodge", stat="identity")
 p  + custom.theme + ylab("Seconds") + xlab("Run") +
   scale_x_discrete(labels=c(15:20)) + ggtitle("Total elapsed time")
 
+```
+Out of these comparisons, the Linux machine performs the fastest. By scaling 
+MRGTESLA to 1.0, the others perform in a following way:
+```{r stats, results='asis', echo=FALSE}
+
+comparison <- data.frame(MRGTESLA.win=(df.win.mrgtesla$elapsed / df.win.mrgtesla$elapsed), 
+                        LH2BIOTI25.win=(df.win.mrgsite25$elapsed / df.win.mrgtesla$elapsed),
+                        LH2BIOTI25.linux=(df.linux.mrgsite25$elapsed / df.win.mrgtesla$elapsed))
+
+print(xtable(comparison), type='html')
+
+```
+Comparing Zonation on different operating systems on the same machine show the
+following:
+```{r stats2, results='asis', echo=FALSE}
+
+comparison <- data.frame(LH2BIOTI25.win=(df.win.mrgsite25$elapsed / df.win.mrgsite25$elapsed),
+                         LH2BIOTI25.linux=(df.linux.mrgsite25$elapsed / df.win.mrgsite25$elapsed))
+
+print(xtable(comparison), type='html')
+
+```
+Averaging over all the variants, Linux machine performs ~1.8 times faster.
+
+Looking at the time needed for initializing the analysis (reading in the data +
+doing connectivity smoothings etc) show some differences as well.
+```{r plotting-init, echo=FALSE}
 p <- ggplot(df.dat, aes(y=init, x=run, fill=machine)) + 
   geom_bar(position="dodge", stat="identity")
 p + custom.theme + ylab("Seconds") +
   scale_x_discrete(labels=c(15:20)) + ggtitle("Initiation stage")
 ```
+
+### Misc
+
+If running a large set of analysis, MRGTESLA would obviously benefit from being
+able to run several runs at the same time (more cores and RAM available).

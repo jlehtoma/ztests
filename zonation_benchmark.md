@@ -36,7 +36,7 @@ All variants are run using:
 Different analysis options used:
 
 <!-- html table generated in R 2.15.2 by xtable 1.7-1 package -->
-<!-- Fri May 10 09:45:42 2013 -->
+<!-- Fri May 10 10:16:00 2013 -->
 <TABLE border=1>
 <TR> <TH>  </TH> <TH> id </TH> <TH> nfeatures </TH> <TH> weights </TH> <TH> condition </TH> <TH> cmatrix </TH> <TH> cwkh </TH> <TH> cres </TH> <TH> mask </TH>  </TR>
   <TR> <TD align="right"> 1 </TD> <TD align="right">  15 </TD> <TD align="right"> 20.00 </TD> <TD> no </TD> <TD> yes </TD> <TD> no </TD> <TD> no </TD> <TD> no </TD> <TD> no </TD> </TR>
@@ -58,20 +58,79 @@ Different analysis options used:
 
 ### Machines
 
+Machines 1 and 2 are the same computer runinng with different OS.
+
 1. **LH2-BIOTI25 (Linux)**  
-**Model**: HP EliteBook Folio 9470M  
+**Model**: HP EliteBook Folio 9470M Laptop  
 **OS**: openSUSE 12.3 x86_64 (kernel version 3.7.10-1.4-desktop)  
 **Specs**:
   * RAM: 8 GB
-  * CPU: 
+  * CPU: Intel(R) Core(TM) i7-3667U CPU @ 2.00GHz, 2501 Mhz, 2 Core(s), 4 Logical Processor(s)
+  * Hard-disk: ~256 GB SSD
+  
+1. **LH2-BIOTI25 (Windows)**  
+**Model**: HP EliteBook Folio 9470M Laptop  
+**OS**:  Windows 7 (version 6.1.7601)  
+**Specs**:
+  * RAM: 8 GB
+  * CPU: Intel(R) Core(TM) i7-3667U CPU @ 2.00GHz, 2501 Mhz, 2 Core(s), 4 Logical Processor(s)  
+  * Hard-disk: ~256 GB SSD  
+  
+1. **MRGTESLA (Windows)**  
+**Model**: Dell Precision T7500 Workstation  
+**OS**:  Windows 7 (version 6.1.7601, post2008Server)  
+**Specs**:
+  * RAM: 92 GB
+  * CPU (2x): Processor: Intel(R) Xeon(R) CPU X5650  @ 2.67GHz, 2660 Mhz, 6 Core(s), 12 Logical Processor(s)
+  * Hard-disk: ~500 GB SAS RAID disk array (10 000 rpm)
 
 ### Benchmark
 
+All analysis runs were run 1 at a time. All time measures are parsed from the
+resulting run-info file, so they are the ones reported by Zonation.
 
 
 
 
 
+![plot of chunk plotting-elapsed](figure/plotting-elapsed.png) 
 
-![plot of chunk plotting](figure/plotting1.png) ![plot of chunk plotting](figure/plotting2.png) 
+Out of these comparisons, the Linux machine performs the fastest. By scaling 
+MRGTESLA to 1.0, the others perform in a following way:
+<!-- html table generated in R 2.15.2 by xtable 1.7-1 package -->
+<!-- Fri May 10 10:16:01 2013 -->
+<TABLE border=1>
+<TR> <TH>  </TH> <TH> MRGTESLA.win </TH> <TH> LH2BIOTI25.win </TH> <TH> LH2BIOTI25.linux </TH>  </TR>
+  <TR> <TD align="right"> 1 </TD> <TD align="right"> 1.00 </TD> <TD align="right"> 0.76 </TD> <TD align="right"> 0.41 </TD> </TR>
+  <TR> <TD align="right"> 2 </TD> <TD align="right"> 1.00 </TD> <TD align="right"> 0.73 </TD> <TD align="right"> 0.39 </TD> </TR>
+  <TR> <TD align="right"> 3 </TD> <TD align="right"> 1.00 </TD> <TD align="right"> 0.75 </TD> <TD align="right"> 0.41 </TD> </TR>
+  <TR> <TD align="right"> 4 </TD> <TD align="right"> 1.00 </TD> <TD align="right"> 0.69 </TD> <TD align="right"> 0.38 </TD> </TR>
+  <TR> <TD align="right"> 5 </TD> <TD align="right"> 1.00 </TD> <TD align="right"> 0.70 </TD> <TD align="right"> 0.38 </TD> </TR>
+  <TR> <TD align="right"> 6 </TD> <TD align="right"> 1.00 </TD> <TD align="right"> 0.70 </TD> <TD align="right"> 0.38 </TD> </TR>
+   </TABLE>
 
+Comparing Zonation on different operating systems on the same machine show the
+following:
+<!-- html table generated in R 2.15.2 by xtable 1.7-1 package -->
+<!-- Fri May 10 10:16:01 2013 -->
+<TABLE border=1>
+<TR> <TH>  </TH> <TH> LH2BIOTI25.win </TH> <TH> LH2BIOTI25.linux </TH>  </TR>
+  <TR> <TD align="right"> 1 </TD> <TD align="right"> 1.00 </TD> <TD align="right"> 0.54 </TD> </TR>
+  <TR> <TD align="right"> 2 </TD> <TD align="right"> 1.00 </TD> <TD align="right"> 0.54 </TD> </TR>
+  <TR> <TD align="right"> 3 </TD> <TD align="right"> 1.00 </TD> <TD align="right"> 0.55 </TD> </TR>
+  <TR> <TD align="right"> 4 </TD> <TD align="right"> 1.00 </TD> <TD align="right"> 0.55 </TD> </TR>
+  <TR> <TD align="right"> 5 </TD> <TD align="right"> 1.00 </TD> <TD align="right"> 0.55 </TD> </TR>
+  <TR> <TD align="right"> 6 </TD> <TD align="right"> 1.00 </TD> <TD align="right"> 0.53 </TD> </TR>
+   </TABLE>
+
+Averaging over all the variants, Linux machine performs ~1.8 times faster.
+
+Looking at the time needed for initializing the analysis (reading in the data +
+doing connectivity smoothings etc) show some differences as well.
+![plot of chunk plotting-init](figure/plotting-init.png) 
+
+
+### Misc
+
+If running a large set of analysis, MRGTESLA would obviously benefit from being
+able to run several runs at the same time (more cores and RAM available).

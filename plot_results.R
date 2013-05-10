@@ -67,7 +67,7 @@ df.dat <- rbind(df.linux.mrgsite25, df.win.mrgsite25, df.win.mrgtesla)
 # 3. Stats ----------------------------------------------------------------
 
 (df.linux.mrgsite25$elapsed / df.win.mrgsite25$elapsed)
-(mean(df.linux.mrgsite25$elapsed / df.win.mrgsite25$elapsed))
+(mean(df.win.mrgsite25$elapsed / df.linux.mrgsite25$elapsed))
 (sd(df.linux.mrgsite25$elapsed / df.win.mrgsite25$elapsed))
 
 # 4. Plotting -------------------------------------------------------------
