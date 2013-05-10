@@ -3,44 +3,74 @@
   ? !!str "C:\\Program Files\\zonation 3.1.9\\ESMK\\analyysi\\tee_15_60_5kp_abf_pe.bat"
   : !!map {
     ? !!str "cellrem"
-    : !!int "5038",
+    : !!int "4801",
     ? !!str "elapsed"
-    : !!int "5048",
+    : !!int "4811",
     ? !!str "init"
     : !!int "6",
     ? !!str "measured"
-    : !!float "0.0",
+    : !!float "4812.0",
   },
   ? !!str "C:\\Program Files\\zonation 3.1.9\\ESMK\\analyysi\\tee_16_60_5kp_abf_pe_w.bat"
   : !!map {
+    ? !!str "cellrem"
+    : !!int "4740",
+    ? !!str "elapsed"
+    : !!int "4750",
+    ? !!str "init"
+    : !!int "6",
     ? !!str "measured"
-    : !!float "0.0",
+    : !!float "4751.0",
   },
   ? !!str "C:\\Program Files\\zonation 3.1.9\\ESMK\\analyysi\\tee_17_60_5kp_abf_pe_w_cmat.bat"
   : !!map {
+    ? !!str "cellrem"
+    : !!int "4775",
+    ? !!str "elapsed"
+    : !!int "4889",
+    ? !!str "init"
+    : !!int "110",
     ? !!str "measured"
-    : !!float "0.0",
+    : !!float "4891.0",
   },
   ? !!str "C:\\Program Files\\zonation 3.1.9\\ESMK\\analyysi\\tee_18_60_5kp_abf_pe_w_cmat_cmete.bat"
   : !!map {
+    ? !!str "cellrem"
+    : !!int "10105",
+    ? !!str "elapsed"
+    : !!int "10519",
+    ? !!str "init"
+    : !!int "405",
     ? !!str "measured"
-    : !!float "0.0",
+    : !!float "10520.0",
   },
   ? !!str "C:\\Program Files\\zonation 3.1.9\\ESMK\\analyysi\\tee_19_60_5kp_abf_pe_w_cmat_cmete_cres.bat"
   : !!map {
+    ? !!str "cellrem"
+    : !!int "10088",
+    ? !!str "elapsed"
+    : !!int "10806",
+    ? !!str "init"
+    : !!int "710",
     ? !!str "measured"
-    : !!float "0.0",
+    : !!float "10808.0",
   },
   ? !!str "C:\\Program Files\\zonation 3.1.9\\ESMK\\analyysi\\tee_20_60_5kp_abf_pe_w_cmat_cmete_cres_mask.bat"
   : !!map {
+    ? !!str "cellrem"
+    : !!int "10211",
+    ? !!str "elapsed"
+    : !!int "10947",
+    ? !!str "init"
+    : !!int "728",
     ? !!str "measured"
-    : !!float "0.0",
+    : !!float "10948.0",
   },
   ? !!str "sys_info"
   : !!seq [
     !!map {
       ? !!str "Report time"
-      : !!str "2013-05-09T13:31:57.170000",
+      : !!str "2013-05-09T15:14:11.578000",
     },
     !!map {
       ? !!str "Uname"

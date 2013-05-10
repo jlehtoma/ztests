@@ -55,16 +55,20 @@ setwd("C:/Users/localadmin_jlehtoma/Documents/GitHub/ztests")
 # 2. Read in the data -----------------------------------------------------
 
 df.linux.mrgsite25 <- yaml2df("results_esmk_linux_x86_64.yaml")
+df.win.mrgsite25 <- yaml2df("results_esmk_win_MRGSITE25_x86_64.yaml")
 df.win.mrgtesla <- yaml2df("results_esmk_win_MRGTESLA_x86_64.yaml")
 
+# Fix the machine names for Linux
+df.linux.mrgsite25$machine <- "LH2-BIOTI25 (Linux)"
+
 # Merge all data
-df.dat <- rbind(df.linux.mrgsite25, df.win.mrgtesla)
+df.dat <- rbind(df.linux.mrgsite25, df.win.mrgsite25, df.win.mrgtesla)
 
 # 3. Stats ----------------------------------------------------------------
 
-(df.linux.mrgsite25$elapsed / df.win.mrgtesla$elapsed)
-(mean(df.linux.mrgsite25$elapsed / df.win.mrgtesla$elapsed))
-(sd(df.linux.mrgsite25$elapsed / df.win.mrgtesla$elapsed))
+(df.linux.mrgsite25$elapsed / df.win.mrgsite25$elapsed)
+(mean(df.linux.mrgsite25$elapsed / df.win.mrgsite25$elapsed))
+(sd(df.linux.mrgsite25$elapsed / df.win.mrgsite25$elapsed))
 
 # 4. Plotting -------------------------------------------------------------
 
@@ -72,8 +76,8 @@ df.dat <- rbind(df.linux.mrgsite25, df.win.mrgtesla)
 
 p <- ggplot(df.dat, aes(y=elapsed, x=run, fill=machine)) + 
      geom_bar(position="dodge", stat="identity")
-p + theme(axis.text.x = element_text(angle = 45, hjust = 1)) + ylab("Seconds") +
-  ggtitle("Total elapsed time")
+p + theme(axis.text.x = element_text(size=18)) + ylab("Seconds") + xlab("Run") +
+  scale_x_discrete(labels=c(15:20)) + ggtitle("Total elapsed time")
 
 # 4.2 Init -----------------------------------------------------------
 
