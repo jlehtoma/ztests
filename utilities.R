@@ -12,7 +12,34 @@ get.times <- function(file.name, data) {
   return(c(run.name, unlist(data[file.name], use.names=FALSE)))
 }
 
-yaml2df <- function(x) {
+differences2df <- function(x) {
+  dat <- do.call("rbind", lapply(diffs, function(x) {
+                                  c("file1"=basename(x$file1), 
+                                    "file2"=basename(x$file2), 
+                                    "jaccard.threshold"=x$jaccard[[1]], 
+                                    "jaccard.index"=x$jaccard[[2]],
+                                    "kendall.tau"=x$kendall_tau[[1]],
+                                    "kendall.tau.p"=x$kendall_tau[[2]],
+                                    "max"=x$max,
+                                    "mean"=x$mean,
+                                    "min"=x$min,
+                                    "std"=x$std)}
+                                )
+                )
+  dat <- data.frame(dat, stringsAsFactors=FALSE)
+  # FIXME: there must be a neater way of doing this...
+  dat$jaccard.threshold <- as.numeric(dat$jaccard.threshold)
+  dat$jaccard.index <- as.numeric(dat$jaccard.index)
+  dat$kendall.tau <- as.numeric(dat$kendall.tau)
+  dat$kendall.tau.p <- as.numeric(dat$kendall.tau.p)
+  dat$max <- as.numeric(dat$max)
+  dat$mean <- as.numeric(dat$mean)
+  dat$min <- as.numeric(dat$min)
+  dat$std <- as.numeric(dat$std)
+  return(dat)
+}
+
+times2df <- function(x) {
   
   dat <- yaml.load_file(x)
   

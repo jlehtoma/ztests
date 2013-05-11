@@ -110,9 +110,9 @@ resulting run-info file, so they are the ones reported by Zonation.
 
 ```{r data-pre-processing, echo=FALSE}
 
-df.linux.mrgsite25 <- yaml2df("results_esmk_linux_x86_64.yaml")
-df.win.mrgsite25 <- yaml2df("results_esmk_win_MRGSITE25_x86_64.yaml")
-df.win.mrgtesla <- yaml2df("results_esmk_win_MRGTESLA_x86_64.yaml")
+df.linux.mrgsite25 <- times2df("results_esmk_linux_x86_64.yaml")
+df.win.mrgsite25 <- times2df("results_esmk_win_MRGSITE25_x86_64.yaml")
+df.win.mrgtesla <- times2df("results_esmk_win_MRGTESLA_x86_64.yaml")
 
 # Fix the machine names for Linux
 df.linux.mrgsite25$machine <- "LH2-BIOTI25 (Linux)"
@@ -162,6 +162,18 @@ p <- ggplot(df.dat, aes(y=init, x=run, fill=machine)) +
   geom_bar(position="dodge", stat="identity")
 p + custom.theme + ylab("Seconds") +
   scale_x_discrete(labels=c(15:20)) + ggtitle("Initiation stage")
+```
+
+### Comparing rank rasters
+
+```{r results-1, results='asis', echo=FALSE}
+diffs <- yaml.load_file("raster_differences.yaml")
+df.diffs <- differences2df(diff)
+df.diffs <- df.diffs[with(df.diffs, order(file1)), ]
+# Leave out the file names
+# FIXME: this isn't generic
+df.diffs <- data.frame(run=17:20, df.diffs[,3:length(df.diffs)])
+print(xtable(df.diffs, digits=c(0, 0, 2, 5, 5, 3, 5, 2, 5, 5)), type='html')
 ```
 
 ### Misc

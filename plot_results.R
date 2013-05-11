@@ -92,3 +92,6 @@ p + theme(axis.text.x = element_text(angle = 45, hjust = 1)) + ylab("Seconds") +
 # 5. Result comparison ----------------------------------------------------
 
 diffs <- yaml.load_file("raster_differences.yaml")
+diffs <- do.call("rbind", lapply(diffs, differences2df))
+df.diffs <- data.frame(diffs)
+df.diffs <- df.diffs[with(df.diffs, order(file1)), ]

@@ -9,8 +9,10 @@ import sys
 import gdal
 from gdalconst import *
 import numpy
-from scipy.stats.mstats import mquantiles
+from scipy.spatial.distance import jaccard
+from scipy.stats import kendalltau
 import yaml
+
 
 def raster_differences(raster_dataset_1, raster_dataset_2, tolerance=1e-08):
     ''' Compares the values of two rasters given a certain treshold.
@@ -48,7 +50,19 @@ def raster_differences(raster_dataset_1, raster_dataset_2, tolerance=1e-08):
         differences['min'] = float(numpy.min(diff))
         differences['mean'] = float(numpy.mean(diff))
         differences['std'] = float(numpy.std(diff))
-        differences['quantiles'] = [float(item) for item in mquantiles(diff)]
+        #differences['quantiles'] = [float(item) for item in mquantiles(diff)]
+        print("INFO: Calculating Kendall's tau statistics, this may take a while...")
+        tau = kendalltau(data_1, data_2)
+        differences['kendall_tau'] = (float(tau[0]), float(tau[1]))
+
+        treshold = 0.99
+        print("INFO: Calculating jaccard distance for treshold {0}".format(treshold))
+        frac_data_1 = data_1 >= treshold
+        frac_data_1 = numpy.reshape(frac_data_1, frac_data_1.size)
+        frac_data_2 = data_2 >= treshold
+        frac_data_2 = numpy.reshape(frac_data_2, frac_data_2.size)
+        # Calculate jaccard index instead of distance
+        differences['jaccard'] = (treshold, float(1-jaccard(frac_data_1, frac_data_2)))
 
     return differences
 
@@ -81,7 +95,7 @@ def raster_pairs(folder1, folder2, suffix='', ext=''):
             pprint(rasters_2)
 
             rasters_1.remove(raster)
-    
+
     if not rasters_1:
         print('ERROR: none of the rasters in folder 1 found in folder 2')
         sys.exit(0)
@@ -109,8 +123,9 @@ if __name__ == '__main__':
         raster_dataset2 = gdal.Open(pair[1], GA_ReadOnly)
 
         differences = raster_differences(raster_dataset1, raster_dataset2)
-        differences['file1'] = pair[0]
-        differences['file2'] = pair[1]
+        if diffences:
+            differences['file1'] = pair[0]
+            differences['file2'] = pair[1]
 
         all_differences.append(differences)
 
