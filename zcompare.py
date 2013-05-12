@@ -51,9 +51,9 @@ def raster_differences(raster_dataset_1, raster_dataset_2, tolerance=1e-08):
         differences['mean'] = float(numpy.mean(diff))
         differences['std'] = float(numpy.std(diff))
         #differences['quantiles'] = [float(item) for item in mquantiles(diff)]
-        #print("INFO: Calculating Kendall's tau statistics, this may take a while...")
-        #tau = kendalltau(data_1, data_2)
-        #differences['kendall_tau'] = (float(tau[0]), float(tau[1]))
+        print("INFO: Calculating Kendall's tau statistics, this may take a while...")
+        tau = kendalltau(data_1, data_2)
+        differences['kendall_tau'] = (float(tau[0]), float(tau[1]))
 
         treshold = 0.99
         print("INFO: Calculating jaccard distance for treshold {0}".format(treshold))
@@ -115,7 +115,7 @@ def raster_pairs(folder1, folder2, suffix='', ext=''):
 if __name__ == '__main__':
 
     folder_1 = '/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ESMK/analyysi/output_win'
-    folder_2 = '/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ESMK/analyysi/output_arch_on_win_host'
+    folder_2 = '/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ESMK/analyysi/output_linux'
 
     pairs = raster_pairs(folder_1, folder_2, suffix='.rank.*', ext='.img')
 

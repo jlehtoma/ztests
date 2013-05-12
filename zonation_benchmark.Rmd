@@ -191,7 +191,7 @@ the orderings of the data when ranked by each of the quantities.
 
 ```{r results-1, results='asis', echo=FALSE}
 diffs <- yaml.load_file("raster_differences.yaml")
-df.diffs <- differences2df(diff)
+df.diffs <- differences2df(diffs)
 df.diffs <- df.diffs[with(df.diffs, order(file1)), ]
 # Leave out the file names
 # FIXME: this isn't generic
