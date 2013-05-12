@@ -182,7 +182,7 @@ add edge points = 0
 
 <!-- html table generated in R 3.0.0 by xtable 1.7-1 package -->
 
-<!-- Sat May 11 14:47:27 2013 -->
+<!-- Sun May 12 17:28:42 2013 -->
 
 <TABLE border=1>
 <TR> <TH>  </TH> <TH> id </TH> <TH> nfeatures </TH> <TH> weights </TH> <TH> condition </TH> <TH> cmatrix </TH> <TH> cwkh </TH> <TH> cres </TH> <TH> mask </TH>  </TR>
@@ -251,7 +251,7 @@ MRGTESLA to 1.0, the others perform in a following way:</p>
 
 <!-- html table generated in R 3.0.0 by xtable 1.7-1 package -->
 
-<!-- Sat May 11 14:47:28 2013 -->
+<!-- Sun May 12 17:28:43 2013 -->
 
 <TABLE border=1>
 <TR> <TH>  </TH> <TH> MRGTESLA.win </TH> <TH> LH2BIOTI25.win </TH> <TH> LH2BIOTI25.linux </TH>  </TR>
@@ -268,7 +268,7 @@ following:</p>
 
 <!-- html table generated in R 3.0.0 by xtable 1.7-1 package -->
 
-<!-- Sat May 11 14:47:28 2013 -->
+<!-- Sun May 12 17:28:43 2013 -->
 
 <TABLE border=1>
 <TR> <TH>  </TH> <TH> LH2BIOTI25.win </TH> <TH> LH2BIOTI25.linux </TH>  </TR>
@@ -288,9 +288,30 @@ doing connectivity smoothings etc) show some differences as well.
 
 <h3>Comparing rank rasters</h3>
 
+<p>One essential question is, whether Zonation produces the same (or similar 
+enough) results on different platforms. Following table summarizes the 
+differences between different variants produced on two systems: 
+<code>LH-BIOTI25 (Win)</code> and <code>LH-BIOTI25 (Linux)</code>. Table columns mean the following:</p>
+
+<p><em>Overall similarity</em>  </p>
+
+<p><a href="http://en.wikipedia.org/wiki/Jaccard_index">Jaccard index</a>  is a statistic used for comparing the similarity and diversity of sample sets.</p>
+
+<p><code>jaccard.threshold</code>: which proportion of the ranks is compared using Jaccard 
+index. Complement to &ldquo;top-fraction&rdquo;, i.e. <code>0.99</code> means the best 1% of the 
+landscape.</p>
+
+<p><code>jaccard.index</code>: value of the Jaccard index. Value 1 means that the compared 
+sets overlap perfectly.</p>
+
+<p><a href="http://en.wikipedia.org/wiki/Kendall_tau_rank_correlation_coefficient">Kendall tau rank correlation coefficient</a> is a measure of rank correlation, i.e., the similarity of
+the orderings of the data when ranked by each of the quantities.</p>
+
+<p><em>Element-wise differentials</em>  </p>
+
 <!-- html table generated in R 3.0.0 by xtable 1.7-1 package -->
 
-<!-- Sat May 11 14:47:28 2013 -->
+<!-- Sun May 12 17:28:43 2013 -->
 
 <TABLE border=1>
 <TR> <TH>  </TH> <TH> run </TH> <TH> jaccard.threshold </TH> <TH> jaccard.index </TH> <TH> kendall.tau </TH> <TH> kendall.tau.p </TH> <TH> max </TH> <TH> mean </TH> <TH> min </TH> <TH> std </TH>  </TR>

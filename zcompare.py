@@ -51,9 +51,9 @@ def raster_differences(raster_dataset_1, raster_dataset_2, tolerance=1e-08):
         differences['mean'] = float(numpy.mean(diff))
         differences['std'] = float(numpy.std(diff))
         #differences['quantiles'] = [float(item) for item in mquantiles(diff)]
-        print("INFO: Calculating Kendall's tau statistics, this may take a while...")
-        tau = kendalltau(data_1, data_2)
-        differences['kendall_tau'] = (float(tau[0]), float(tau[1]))
+        #print("INFO: Calculating Kendall's tau statistics, this may take a while...")
+        #tau = kendalltau(data_1, data_2)
+        #differences['kendall_tau'] = (float(tau[0]), float(tau[1]))
 
         treshold = 0.99
         print("INFO: Calculating jaccard distance for treshold {0}".format(treshold))
@@ -77,6 +77,7 @@ def raster_pairs(folder1, folder2, suffix='', ext=''):
     @return list of tuples (pairs of paths in the two folders)
     '''
 
+    pairs = []
     pattern = '*' + suffix + ext
 
     rasters_1 = glob.glob(os.path.join(folder1, pattern))
@@ -89,24 +90,32 @@ def raster_pairs(folder1, folder2, suffix='', ext=''):
         print('ERROR: No suitable files (pattern: {0}) found in folder 2'.format(pattern))
         sys.exit(0)
 
-    for raster in rasters_1:
-        if os.path.basename(raster) not in [os.path.basename(item) for item in rasters_2]:
-            print('WARNING: Raster {0} not found in other folder'.format(os.path.basename(raster)))
-            pprint(rasters_2)
+    raster_names_2 = [os.path.basename(item) for item in rasters_2]
 
-            rasters_1.remove(raster)
+    for raster_1 in rasters_1:
+
+        raster_name_1 = os.path.basename(raster_1)
+
+        # FIXME: rasters 2 indexing very fragile
+        if raster_name_1 in raster_names_2:
+            pairs.append((raster_1, 
+                          rasters_2[raster_names_2.index(raster_name_1)]))
+        else:
+            print('WARNING: Raster {0} not found in other folder'.format(raster_name_1))
+            pprint(rasters_2)
+            rasters_1.remove(raster_1)
 
     if not rasters_1:
         print('ERROR: none of the rasters in folder 1 found in folder 2')
         sys.exit(0)
 
-    # FIXME: what if the lists are different lenghts?
-    return zip(rasters_1, rasters_2)
+    print(pairs)
+    return pairs
 
 if __name__ == '__main__':
 
-    folder_1 = '/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ESMK/analyysi/output_linux'
-    folder_2 = '/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ESMK/analyysi/output_win'
+    folder_1 = '/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ESMK/analyysi/output_win'
+    folder_2 = '/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ESMK/analyysi/output_arch_on_win_host'
 
     pairs = raster_pairs(folder_1, folder_2, suffix='.rank.*', ext='.img')
 
@@ -115,7 +124,7 @@ if __name__ == '__main__':
     for pair in pairs:
 
         if os.path.basename(pair[0]) != os.path.basename(pair[1]):
-            print('WARNING: comparing raster datasets ')
+            print('WARNING: comparing raster datasets with different names')
 
         print("INFO: Reading in FIRST dataset {0}".format(pair[0]))
         raster_dataset1 = gdal.Open(pair[0], GA_ReadOnly)
@@ -123,7 +132,7 @@ if __name__ == '__main__':
         raster_dataset2 = gdal.Open(pair[1], GA_ReadOnly)
 
         differences = raster_differences(raster_dataset1, raster_dataset2)
-        if diffences:
+        if differences:
             differences['file1'] = pair[0]
             differences['file2'] = pair[1]
 

@@ -166,6 +166,29 @@ p + custom.theme + ylab("Seconds") +
 
 ### Comparing rank rasters
 
+One essential question is, whether Zonation produces the same (or similar 
+enough) results on different platforms. Following table summarizes the 
+differences between different variants produced on two systems: 
+`LH-BIOTI25 (Win)` and `LH-BIOTI25 (Linux)`. Table columns mean the following:
+
+*Overall similarity*  
+
+[Jaccard index](http://en.wikipedia.org/wiki/Jaccard_index)  is a statistic used for comparing the similarity and diversity of sample sets.
+
+`jaccard.threshold`: which proportion of the ranks is compared using Jaccard 
+index. Complement to "top-fraction", i.e. `0.99` means the best 1% of the 
+landscape.
+
+`jaccard.index`: value of the Jaccard index. Value 1 means that the compared 
+sets overlap perfectly.
+
+[Kendall tau rank correlation coefficient](http://en.wikipedia.org/wiki/Kendall_tau_rank_correlation_coefficient) is a measure of rank correlation, i.e., the similarity of
+the orderings of the data when ranked by each of the quantities.
+
+*Element-wise differentials*  
+
+
+
 ```{r results-1, results='asis', echo=FALSE}
 diffs <- yaml.load_file("raster_differences.yaml")
 df.diffs <- differences2df(diff)

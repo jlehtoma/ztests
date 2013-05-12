@@ -36,7 +36,7 @@ All variants are run using:
 Different analysis options used:
 
 <!-- html table generated in R 3.0.0 by xtable 1.7-1 package -->
-<!-- Sat May 11 14:47:27 2013 -->
+<!-- Sun May 12 17:28:42 2013 -->
 <TABLE border=1>
 <TR> <TH>  </TH> <TH> id </TH> <TH> nfeatures </TH> <TH> weights </TH> <TH> condition </TH> <TH> cmatrix </TH> <TH> cwkh </TH> <TH> cres </TH> <TH> mask </TH>  </TR>
   <TR> <TD align="right"> 1 </TD> <TD align="right">  15 </TD> <TD align="right"> 20.00 </TD> <TD> no </TD> <TD> yes </TD> <TD> no </TD> <TD> no </TD> <TD> no </TD> <TD> no </TD> </TR>
@@ -98,7 +98,7 @@ resulting run-info file, so they are the ones reported by Zonation.
 Out of these comparisons, the Linux machine performs the fastest. By scaling 
 MRGTESLA to 1.0, the others perform in a following way:
 <!-- html table generated in R 3.0.0 by xtable 1.7-1 package -->
-<!-- Sat May 11 14:47:28 2013 -->
+<!-- Sun May 12 17:28:43 2013 -->
 <TABLE border=1>
 <TR> <TH>  </TH> <TH> MRGTESLA.win </TH> <TH> LH2BIOTI25.win </TH> <TH> LH2BIOTI25.linux </TH>  </TR>
   <TR> <TD align="right"> 1 </TD> <TD align="right"> 1.00 </TD> <TD align="right"> 0.76 </TD> <TD align="right"> 0.41 </TD> </TR>
@@ -112,7 +112,7 @@ MRGTESLA to 1.0, the others perform in a following way:
 Comparing Zonation on different operating systems on the same machine show the
 following:
 <!-- html table generated in R 3.0.0 by xtable 1.7-1 package -->
-<!-- Sat May 11 14:47:28 2013 -->
+<!-- Sun May 12 17:28:43 2013 -->
 <TABLE border=1>
 <TR> <TH>  </TH> <TH> LH2BIOTI25.win </TH> <TH> LH2BIOTI25.linux </TH>  </TR>
   <TR> <TD align="right"> 1 </TD> <TD align="right"> 1.00 </TD> <TD align="right"> 0.54 </TD> </TR>
@@ -132,8 +132,31 @@ doing connectivity smoothings etc) show some differences as well.
 
 ### Comparing rank rasters
 
+One essential question is, whether Zonation produces the same (or similar 
+enough) results on different platforms. Following table summarizes the 
+differences between different variants produced on two systems: 
+`LH-BIOTI25 (Win)` and `LH-BIOTI25 (Linux)`. Table columns mean the following:
+
+*Overall similarity*  
+
+[Jaccard index](http://en.wikipedia.org/wiki/Jaccard_index)  is a statistic used for comparing the similarity and diversity of sample sets.
+
+`jaccard.threshold`: which proportion of the ranks is compared using Jaccard 
+index. Complement to "top-fraction", i.e. `0.99` means the best 1% of the 
+landscape.
+
+`jaccard.index`: value of the Jaccard index. Value 1 means that the compared 
+sets overlap perfectly.
+
+[Kendall tau rank correlation coefficient](http://en.wikipedia.org/wiki/Kendall_tau_rank_correlation_coefficient) is a measure of rank correlation, i.e., the similarity of
+the orderings of the data when ranked by each of the quantities.
+
+*Element-wise differentials*  
+
+
+
 <!-- html table generated in R 3.0.0 by xtable 1.7-1 package -->
-<!-- Sat May 11 14:47:28 2013 -->
+<!-- Sun May 12 17:28:43 2013 -->
 <TABLE border=1>
 <TR> <TH>  </TH> <TH> run </TH> <TH> jaccard.threshold </TH> <TH> jaccard.index </TH> <TH> kendall.tau </TH> <TH> kendall.tau.p </TH> <TH> max </TH> <TH> mean </TH> <TH> min </TH> <TH> std </TH>  </TR>
   <TR> <TD align="right"> 2 </TD> <TD align="right"> 17 </TD> <TD align="right"> 0.99 </TD> <TD align="right"> 0.99813 </TD> <TD align="right"> 0.99993 </TD> <TD align="right"> 0.000 </TD> <TD align="right"> 0.00064 </TD> <TD align="right"> 0.00 </TD> <TD align="right"> -0.00064 </TD> <TD align="right"> 0.00007 </TD> </TR>
