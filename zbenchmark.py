@@ -39,9 +39,10 @@ def read_run(file_list):
                     # Strip the trailing newline
                     sequence = sequence.replace('\n', '')
                     sequence = sequence.replace('\r', '')
-                    # If we are on linux, get rid of .exe
-                    if platform.system() == 'Linux':
-                        sequence = sequence.replace('.exe', '')
+                    # Replace the file path slashes
+                    sequence = sequence.replace('\\', '/')
+                    # Get rid of .exe, Windows can handle this as well
+                    sequence = sequence.replace('.exe', '')
                     # Split the sequence
                     sequence = sequence.split(' ')
                     # Remove 'call' arg
@@ -139,7 +140,7 @@ def main():
                 suite = yaml.safe_load(f)
                 args.input_files = suite['benchmark_analyses']
 
-    args.input_files = [os.path.abspath(item) for item in args.input_files]
+    args.input_files = [os.path.join(os.path.abspath(__file__), os.path.abspath(item)) for item in args.input_files]
 
     cmd_args = read_run(args.input_files)
 
