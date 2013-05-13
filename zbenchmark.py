@@ -73,8 +73,8 @@ def run_analysis(file_path, cmd_args):
     '''
 
     t0 = time.time()
-    #p = Popen(cmd_args, cwd=os.path.dirname(file_path))
-    #p.wait()
+    p = Popen(cmd_args, cwd=os.path.dirname(file_path))
+    p.wait()
     t1 = time.time()
 
     total = t1 - t0
@@ -82,7 +82,7 @@ def run_analysis(file_path, cmd_args):
     # Get also the times reported by Zonation. Output name pattern is the 5th item in the bat/sh
     # file
     output_filepath = cmd_args[4].replace('.txt', '.run_info.txt')
-    output_filepath = os.path.join(os.path.dirname(file_path), output_filepath)
+    output_filepath = os.path.abspath(os.path.join(os.path.dirname(file_path), output_filepath))
     elapsed_times = parse_results(output_filepath)
     elapsed_times['measured'] = round(total, 0)
 
