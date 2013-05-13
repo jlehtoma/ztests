@@ -156,8 +156,19 @@ hr {
 <p>Previous benchmark with Zonation tutorial material can be found 
 <a href="http://cbig.it.helsinki.fi/development/boards/2/topics/25">here</a>.</p>
 
-<p><strong>TL;DR: A static build of Zonation performs ~1.8 times faster on Linux than
-on Windows (running on the same hardware).</strong></p>
+<p><strong>TL;DR:</strong></p>
+
+<ul>
+<li>A static build of Zonation performs ~1.8 times faster on Linux than
+on Windows running on a machine with new-generation CPU (i.e. on the same 
+computer).</li>
+<li>Zonation runinnig on a Windows machine with new-generation CPU performs ~1.4 
+times faster than a Windows machine with old-generation CPU (i.e. on different 
+computers). </li>
+<li>A static build of Zonation performs 2.6 times faster on Linux machine with 
+new-generation CPU than on Windows running on a machine with old-generation CPU
+(i.e. on different computers).</li>
+</ul>
 
 <hr/>
 
@@ -181,7 +192,8 @@ at the time being there are no other computers with dual-booting setup.</p>
 
 <ul>
 <li>RAM: 8 GB</li>
-<li>CPU: Intel&reg; Core&trade; i7-3667U CPU @ 2.00GHz, 2501 Mhz, 2 Core(s), 4 Logical Processor(s)</li>
+<li>CPU: Intel&reg; Core&trade; i7-3667U CPU @ 2.00GHz, 2501 Mhz, 2 Core(s), 
+4 Logical Processor(s) (new-generation)</li>
 <li>Hard-disk: ~256 GB SSD</li>
 </ul></li>
 <li><p><strong>LH2-BIOTI25 (Windows)</strong><br/>
@@ -191,7 +203,8 @@ at the time being there are no other computers with dual-booting setup.</p>
 
 <ul>
 <li>RAM: 8 GB</li>
-<li>CPU: Intel&reg; Core&trade; i7-3667U CPU @ 2.00GHz, 2501 Mhz, 2 Core(s), 4 Logical Processor(s)<br/></li>
+<li>CPU: Intel&reg; Core&trade; i7-3667U CPU @ 2.00GHz, 2501 Mhz, 2 Core(s), 4 
+Logical Processor(s) (new-generation)<br/></li>
 <li>Hard-disk: ~256 GB SSD<br/></li>
 </ul></li>
 <li><p><strong>MRGTESLA (Windows)</strong><br/>
@@ -201,7 +214,8 @@ at the time being there are no other computers with dual-booting setup.</p>
 
 <ul>
 <li>RAM: 92 GB</li>
-<li>CPU (2x): Processor: Intel&reg; Xeon&reg; CPU X5650  @ 2.67GHz, 2660 Mhz, 6 Core(s), 12 Logical Processor(s)</li>
+<li>CPU (2x): Processor: Intel&reg; Xeon&reg; CPU X5650  @ 2.67GHz, 2660 Mhz, 6 
+Core(s), 12 Logical Processor(s) (old-generation)</li>
 <li>Hard-disk: ~500 GB SAS RAID disk array (10 000 rpm)</li>
 </ul></li>
 </ol>
@@ -242,7 +256,7 @@ add edge points = 0
 
 <!-- html table generated in R 3.0.0 by xtable 1.7-1 package -->
 
-<!-- Mon May 13 09:25:46 2013 -->
+<!-- Mon May 13 11:26:38 2013 -->
 
 <TABLE border=1>
 <TR> <TH>  </TH> <TH> id </TH> <TH> nfeatures </TH> <TH> weights </TH> <TH> condition </TH> <TH> cmatrix </TH> <TH> cwkh </TH> <TH> cres </TH> <TH> mask </TH>  </TR>
@@ -276,7 +290,7 @@ MRGTESLA to 1.0, the others perform in a following way:</p>
 
 <!-- html table generated in R 3.0.0 by xtable 1.7-1 package -->
 
-<!-- Mon May 13 09:25:46 2013 -->
+<!-- Mon May 13 11:26:38 2013 -->
 
 <TABLE border=1>
 <TR> <TH>  </TH> <TH> MRGTESLA.win </TH> <TH> LH2BIOTI25.win </TH> <TH> LH2BIOTI25.linux </TH>  </TR>
@@ -293,7 +307,7 @@ following:</p>
 
 <!-- html table generated in R 3.0.0 by xtable 1.7-1 package -->
 
-<!-- Mon May 13 09:25:46 2013 -->
+<!-- Mon May 13 11:26:38 2013 -->
 
 <TABLE border=1>
 <TR> <TH>  </TH> <TH> LH2BIOTI25.win </TH> <TH> LH2BIOTI25.linux </TH>  </TR>
@@ -356,7 +370,7 @@ two cells<br/>
 
 <!-- html table generated in R 3.0.0 by xtable 1.7-1 package -->
 
-<!-- Mon May 13 09:25:47 2013 -->
+<!-- Mon May 13 11:26:39 2013 -->
 
 <TABLE border=1>
 <TR> <TH>  </TH> <TH> run </TH> <TH> jaccard.threshold </TH> <TH> jaccard.index </TH> <TH> kendall.tau </TH> <TH> kendall.tau.p </TH> <TH> max </TH> <TH> mean </TH> <TH> min </TH> <TH> std </TH>  </TR>

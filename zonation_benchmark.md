@@ -13,10 +13,20 @@ All code for running these tests and for producing this document can be found
 Previous benchmark with Zonation tutorial material can be found 
 [here](http://cbig.it.helsinki.fi/development/boards/2/topics/25).
 
-**TL;DR: A static build of Zonation performs ~1.8 times faster on Linux than
-on Windows (running on the same hardware).**
+**TL;DR:**
+* A static build of Zonation performs ~1.8 times faster on Linux than
+on Windows running on a machine with new-generation CPU (i.e. on the same 
+computer).
+* Zonation runinnig on a Windows machine with new-generation CPU performs ~1.4 
+times faster than a Windows machine with old-generation CPU (i.e. on different 
+computers). 
+* A static build of Zonation performs 2.6 times faster on Linux machine with 
+new-generation CPU than on Windows running on a machine with old-generation CPU
+(i.e. on different computers).
+
 
 ----
+
 ### Zonation version
 
 Version 3.1.9 was used on all machines. Linux version is a static build whereas
@@ -34,7 +44,8 @@ at the time being there are no other computers with dual-booting setup.
 **OS**: openSUSE 12.3 x86_64 (kernel version 3.7.10-1.4-desktop)  
 **Specs**:
   * RAM: 8 GB
-  * CPU: Intel(R) Core(TM) i7-3667U CPU @ 2.00GHz, 2501 Mhz, 2 Core(s), 4 Logical Processor(s)
+  * CPU: Intel(R) Core(TM) i7-3667U CPU @ 2.00GHz, 2501 Mhz, 2 Core(s), 
+  4 Logical Processor(s) (new-generation)
   * Hard-disk: ~256 GB SSD
   
 1. **LH2-BIOTI25 (Windows)**  
@@ -42,7 +53,8 @@ at the time being there are no other computers with dual-booting setup.
 **OS**:  Windows 7 (version 6.1.7601)  
 **Specs**:
   * RAM: 8 GB
-  * CPU: Intel(R) Core(TM) i7-3667U CPU @ 2.00GHz, 2501 Mhz, 2 Core(s), 4 Logical Processor(s)  
+  * CPU: Intel(R) Core(TM) i7-3667U CPU @ 2.00GHz, 2501 Mhz, 2 Core(s), 4 
+  Logical Processor(s) (new-generation)  
   * Hard-disk: ~256 GB SSD  
   
 1. **MRGTESLA (Windows)**  
@@ -50,7 +62,8 @@ at the time being there are no other computers with dual-booting setup.
 **OS**:  Windows 7 (version 6.1.7601, post2008Server)  
 **Specs**:
   * RAM: 92 GB
-  * CPU (2x): Processor: Intel(R) Xeon(R) CPU X5650  @ 2.67GHz, 2660 Mhz, 6 Core(s), 12 Logical Processor(s)
+  * CPU (2x): Processor: Intel(R) Xeon(R) CPU X5650  @ 2.67GHz, 2660 Mhz, 6 
+  Core(s), 12 Logical Processor(s) (old-generation)
   * Hard-disk: ~500 GB SAS RAID disk array (10 000 rpm)
 
 ----
@@ -86,7 +99,7 @@ All variants are run using:
 Different analysis options used:
 
 <!-- html table generated in R 3.0.0 by xtable 1.7-1 package -->
-<!-- Mon May 13 09:25:46 2013 -->
+<!-- Mon May 13 11:26:38 2013 -->
 <TABLE border=1>
 <TR> <TH>  </TH> <TH> id </TH> <TH> nfeatures </TH> <TH> weights </TH> <TH> condition </TH> <TH> cmatrix </TH> <TH> cwkh </TH> <TH> cres </TH> <TH> mask </TH>  </TR>
   <TR> <TD align="right"> 1 </TD> <TD align="right">  15 </TD> <TD align="right"> 20.00 </TD> <TD> no </TD> <TD> yes </TD> <TD> no </TD> <TD> no </TD> <TD> no </TD> <TD> no </TD> </TR>
@@ -122,7 +135,7 @@ resulting run-info file, so they are the ones reported by Zonation.
 Out of these comparisons, the Linux machine performs the fastest. By scaling 
 MRGTESLA to 1.0, the others perform in a following way:
 <!-- html table generated in R 3.0.0 by xtable 1.7-1 package -->
-<!-- Mon May 13 09:25:46 2013 -->
+<!-- Mon May 13 11:26:38 2013 -->
 <TABLE border=1>
 <TR> <TH>  </TH> <TH> MRGTESLA.win </TH> <TH> LH2BIOTI25.win </TH> <TH> LH2BIOTI25.linux </TH>  </TR>
   <TR> <TD align="right"> 1 </TD> <TD align="right"> 1.00 </TD> <TD align="right"> 0.76 </TD> <TD align="right"> 0.41 </TD> </TR>
@@ -136,7 +149,7 @@ MRGTESLA to 1.0, the others perform in a following way:
 Comparing Zonation on different operating systems on the same machine show the
 following:
 <!-- html table generated in R 3.0.0 by xtable 1.7-1 package -->
-<!-- Mon May 13 09:25:46 2013 -->
+<!-- Mon May 13 11:26:38 2013 -->
 <TABLE border=1>
 <TR> <TH>  </TH> <TH> LH2BIOTI25.win </TH> <TH> LH2BIOTI25.linux </TH>  </TR>
   <TR> <TD align="right"> 1 </TD> <TD align="right"> 1.00 </TD> <TD align="right"> 0.54 </TD> </TR>
@@ -197,7 +210,7 @@ two cells
 `std`: standard deviation of all differences  
 
 <!-- html table generated in R 3.0.0 by xtable 1.7-1 package -->
-<!-- Mon May 13 09:25:47 2013 -->
+<!-- Mon May 13 11:26:39 2013 -->
 <TABLE border=1>
 <TR> <TH>  </TH> <TH> run </TH> <TH> jaccard.threshold </TH> <TH> jaccard.index </TH> <TH> kendall.tau </TH> <TH> kendall.tau.p </TH> <TH> max </TH> <TH> mean </TH> <TH> min </TH> <TH> std </TH>  </TR>
   <TR> <TD align="right"> 2 </TD> <TD align="right"> 17 </TD> <TD align="right"> 0.99 </TD> <TD align="right"> 0.99813 </TD> <TD align="right"> 0.99993 </TD> <TD align="right"> 0.000 </TD> <TD align="right"> 0.00064 </TD> <TD align="right"> 0.00 </TD> <TD align="right"> -0.00064 </TD> <TD align="right"> 0.00007 </TD> </TR>

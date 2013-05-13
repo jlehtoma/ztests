@@ -29,10 +29,20 @@ All code for running these tests and for producing this document can be found
 Previous benchmark with Zonation tutorial material can be found 
 [here](http://cbig.it.helsinki.fi/development/boards/2/topics/25).
 
-**TL;DR: A static build of Zonation performs ~1.8 times faster on Linux than
-on Windows (running on the same hardware).**
+**TL;DR:**
+* A static build of Zonation performs ~1.8 times faster on Linux than
+on Windows running on a machine with new-generation CPU (i.e. on the same 
+computer).
+* Zonation runinnig on a Windows machine with new-generation CPU performs ~1.4 
+times faster than a Windows machine with old-generation CPU (i.e. on different 
+computers). 
+* A static build of Zonation performs 2.6 times faster on Linux machine with 
+new-generation CPU than on Windows running on a machine with old-generation CPU
+(i.e. on different computers).
+
 
 ----
+
 ### Zonation version
 
 Version 3.1.9 was used on all machines. Linux version is a static build whereas
@@ -50,7 +60,8 @@ at the time being there are no other computers with dual-booting setup.
 **OS**: openSUSE 12.3 x86_64 (kernel version 3.7.10-1.4-desktop)  
 **Specs**:
   * RAM: 8 GB
-  * CPU: Intel(R) Core(TM) i7-3667U CPU @ 2.00GHz, 2501 Mhz, 2 Core(s), 4 Logical Processor(s)
+  * CPU: Intel(R) Core(TM) i7-3667U CPU @ 2.00GHz, 2501 Mhz, 2 Core(s), 
+  4 Logical Processor(s) (new-generation)
   * Hard-disk: ~256 GB SSD
   
 1. **LH2-BIOTI25 (Windows)**  
@@ -58,7 +69,8 @@ at the time being there are no other computers with dual-booting setup.
 **OS**:  Windows 7 (version 6.1.7601)  
 **Specs**:
   * RAM: 8 GB
-  * CPU: Intel(R) Core(TM) i7-3667U CPU @ 2.00GHz, 2501 Mhz, 2 Core(s), 4 Logical Processor(s)  
+  * CPU: Intel(R) Core(TM) i7-3667U CPU @ 2.00GHz, 2501 Mhz, 2 Core(s), 4 
+  Logical Processor(s) (new-generation)  
   * Hard-disk: ~256 GB SSD  
   
 1. **MRGTESLA (Windows)**  
@@ -66,7 +78,8 @@ at the time being there are no other computers with dual-booting setup.
 **OS**:  Windows 7 (version 6.1.7601, post2008Server)  
 **Specs**:
   * RAM: 92 GB
-  * CPU (2x): Processor: Intel(R) Xeon(R) CPU X5650  @ 2.67GHz, 2660 Mhz, 6 Core(s), 12 Logical Processor(s)
+  * CPU (2x): Processor: Intel(R) Xeon(R) CPU X5650  @ 2.67GHz, 2660 Mhz, 6 
+  Core(s), 12 Logical Processor(s) (old-generation)
   * Hard-disk: ~500 GB SAS RAID disk array (10 000 rpm)
 
 ----

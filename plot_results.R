@@ -69,7 +69,7 @@ df.dat$run <- factor(rep(15:20, 3))
 # 3. Stats ----------------------------------------------------------------
 
 (df.linux.mrgsite25$elapsed / df.win.mrgsite25$elapsed)
-(mean(df.win.mrgsite25$elapsed / df.linux.mrgsite25$elapsed))
+(mean(df.win.mrgsite25$elapsed / df.win.mrgtesla$elapsed))
 (sd(df.linux.mrgsite25$elapsed / df.win.mrgsite25$elapsed))
 
 # 4. Plotting -------------------------------------------------------------

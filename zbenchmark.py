@@ -12,6 +12,7 @@ import time
 
 from zparser import parse_results
 
+
 def get_system_info():
     ''' Function to retrieve system related information.
 
@@ -187,6 +188,10 @@ def main():
 
     for file_path, _cmd_args in cmd_args.iteritems():
         output[file_path] = run_analysis(file_path, _cmd_args)
+
+    # Construct a suitable output name if it doesn't exist
+    if args.output_file == '':
+        'results_' + output['sys_info'][1]['Uname'][0] + '_' + d['sys_info'][1]['Uname'][1] + '.yaml'
 
     write_output(output, args.output_file)
 
