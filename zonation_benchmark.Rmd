@@ -23,6 +23,54 @@ Main questions:
 1. How fast does Zonation run on various hardware resources?
 1. How hast does Zonation run on various operating systems?
 
+All code for running these tests and for producing this document can be found
+[here](https://github.com/jlehtoma/ztests). Data cannot be shared publically.
+
+Previous benchmark with Zonation tutorial material can be found 
+[here](http://cbig.it.helsinki.fi/development/boards/2/topics/25).
+
+**TL;DR: A static build of Zonation performs ~1.8 times faster on Linux than
+on Windows (running on the same hardware).**
+
+----
+### Zonation version
+
+Version 3.1.9 was used on all machines. Linux version is a static build whereas
+Windows version is the one installed by the installer (dynamically linked).
+
+----
+
+### Computers
+
+Computers 1 and 2 are the same computer runinng with different OS. Unfortunately
+at the time being there are no other computers with dual-booting setup.
+
+1. **LH2-BIOTI25 (Linux)**  
+**Model**: HP EliteBook Folio 9470M Laptop  
+**OS**: openSUSE 12.3 x86_64 (kernel version 3.7.10-1.4-desktop)  
+**Specs**:
+  * RAM: 8 GB
+  * CPU: Intel(R) Core(TM) i7-3667U CPU @ 2.00GHz, 2501 Mhz, 2 Core(s), 4 Logical Processor(s)
+  * Hard-disk: ~256 GB SSD
+  
+1. **LH2-BIOTI25 (Windows)**  
+**Model**: HP EliteBook Folio 9470M Laptop  
+**OS**:  Windows 7 (version 6.1.7601)  
+**Specs**:
+  * RAM: 8 GB
+  * CPU: Intel(R) Core(TM) i7-3667U CPU @ 2.00GHz, 2501 Mhz, 2 Core(s), 4 Logical Processor(s)  
+  * Hard-disk: ~256 GB SSD  
+  
+1. **MRGTESLA (Windows)**  
+**Model**: Dell Precision T7500 Workstation  
+**OS**:  Windows 7 (version 6.1.7601, post2008Server)  
+**Specs**:
+  * RAM: 92 GB
+  * CPU (2x): Processor: Intel(R) Xeon(R) CPU X5650  @ 2.67GHz, 2660 Mhz, 6 Core(s), 12 Logical Processor(s)
+  * Hard-disk: ~500 GB SAS RAID disk array (10 000 rpm)
+
+----
+
 ### Data
 
 Data from real-life analysis from the forest center of South-Savo is used. 20 
@@ -30,7 +78,7 @@ forest structure index layers form the basis of the biodiversity features. This
 stack is duplicated accordingly if the analysis setup (e.g. matrix connectivity)
 requires so.
 
-While the analysis variants used (N=5) in this benchmark are not huge 
+While the analysis variants used (N=6) in this benchmark are not huge 
 (~4 million effective cells), they are big enough to give an idea on Zonation 
 performance in real-life planning related analysis.
 
@@ -39,6 +87,8 @@ Statistics on the biodiversity features as reported by Zonation:
     Matrix x dimension: 3044  
     Matrix y dimension: 2815  
     Cells with data = 3955305 locations with missing values = 4613555  
+
+----
 
 ### Analysis variants
 
@@ -75,33 +125,7 @@ print(xtable(variants), type='html')
 `cres` = Interaction connectivity to existing PAs used  
 `mask` = Existing PAs masked in  
 
-### Machines
-
-Machines 1 and 2 are the same computer runinng with different OS.
-
-1. **LH2-BIOTI25 (Linux)**  
-**Model**: HP EliteBook Folio 9470M Laptop  
-**OS**: openSUSE 12.3 x86_64 (kernel version 3.7.10-1.4-desktop)  
-**Specs**:
-  * RAM: 8 GB
-  * CPU: Intel(R) Core(TM) i7-3667U CPU @ 2.00GHz, 2501 Mhz, 2 Core(s), 4 Logical Processor(s)
-  * Hard-disk: ~256 GB SSD
-  
-1. **LH2-BIOTI25 (Windows)**  
-**Model**: HP EliteBook Folio 9470M Laptop  
-**OS**:  Windows 7 (version 6.1.7601)  
-**Specs**:
-  * RAM: 8 GB
-  * CPU: Intel(R) Core(TM) i7-3667U CPU @ 2.00GHz, 2501 Mhz, 2 Core(s), 4 Logical Processor(s)  
-  * Hard-disk: ~256 GB SSD  
-  
-1. **MRGTESLA (Windows)**  
-**Model**: Dell Precision T7500 Workstation  
-**OS**:  Windows 7 (version 6.1.7601, post2008Server)  
-**Specs**:
-  * RAM: 92 GB
-  * CPU (2x): Processor: Intel(R) Xeon(R) CPU X5650  @ 2.67GHz, 2660 Mhz, 6 Core(s), 12 Logical Processor(s)
-  * Hard-disk: ~500 GB SAS RAID disk array (10 000 rpm)
+----
 
 ### Benchmark
 
@@ -153,16 +177,19 @@ comparison <- data.frame(LH2BIOTI25.win=(df.win.mrgsite25$elapsed / df.win.mrgsi
 print(xtable(comparison), type='html')
 
 ```
-Averaging over all the variants, Linux machine performs ~1.8 times faster.
+Averaging over all the variants, a Linux machine performs ~1.8 times faster.
 
 Looking at the time needed for initializing the analysis (reading in the data +
-doing connectivity smoothings etc) show some differences as well.
+doing connectivity smoothings etc) show some differences as well.  
+
 ```{r plotting-init, echo=FALSE}
 p <- ggplot(df.dat, aes(y=init, x=run, fill=machine)) + 
   geom_bar(position="dodge", stat="identity")
 p + custom.theme + ylab("Seconds") +
   scale_x_discrete(labels=c(15:20)) + ggtitle("Initiation stage")
 ```
+
+----
 
 ### Comparing rank rasters
 
@@ -185,9 +212,23 @@ sets overlap perfectly.
 [Kendall tau rank correlation coefficient](http://en.wikipedia.org/wiki/Kendall_tau_rank_correlation_coefficient) is a measure of rank correlation, i.e., the similarity of
 the orderings of the data when ranked by each of the quantities.
 
-*Element-wise differentials*  
+`kendall.tau`: The tau statistic.
 
+`kendall.tau.p`: The two-sided p-value for a hypothesis test whose null 
+hypothesis is an absence of association, tau = 0.
 
+*Cell-wise differences*  
+
+Rest of the columns are statistics for cell-wise differences produced by
+
+    rank_raster1 - rank_raster2
+    
+`max`: largest positive (`raster1` > `raster2`) difference in rank value between 
+two cells  
+`mean`: mean difference in rank value between two cells  
+`min`: largest negative (`raster1` < `raster2`) difference in rank value between 
+two cells  
+`std`: standard deviation of all differences  
 
 ```{r results-1, results='asis', echo=FALSE}
 diffs <- yaml.load_file("raster_differences.yaml")
@@ -198,6 +239,27 @@ df.diffs <- df.diffs[with(df.diffs, order(file1)), ]
 df.diffs <- data.frame(run=17:20, df.diffs[,3:length(df.diffs)])
 print(xtable(df.diffs, digits=c(0, 0, 2, 5, 5, 3, 5, 2, 5, 5)), type='html')
 ```
+
+Observations:
+* Zonation running on both operating systems produces _exactly_ the same results
+for variants 15 and 16.
+* Variants 17, 18, 19, and 20 have slightly different, but _very similar_
+results.
+* The complexity of the variants is 15 < 16 < 17 < 18 < 19 < 20. More 
+specically, connectivity matrix is introduced in variant 17 and varying number
+of interactions in 18 and onwards.
+
+From Fede:
+
+_"Results (rank and curves) should be definitely the same (in a soft
+sense, with small differences due to randomization/ties) and floating
+point precision."_
+
+This probably explains the differences in results (I did not look at the curve
+files) as the differences get larger as new connectivity measures are 
+introduced.
+
+----
 
 ### Misc
 
