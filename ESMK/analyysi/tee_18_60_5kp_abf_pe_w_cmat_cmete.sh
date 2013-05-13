@@ -1,0 +1,2 @@
+#!/bin/sh
+zig3 -r 18_60_5kp_abf_pe_w_cmat_cmete/18_60_5kp_abf_pe_w_cmat_cmete.dat 18_60_5kp_abf_pe_w_cmat_cmete/18_60_5kp_abf_pe_w_cmat_cmete.spp output/result_18_60_5kp_abf_pe_w_cmat_cmete.txt 0 0 1 0 --grid-output-formats=compressed-img

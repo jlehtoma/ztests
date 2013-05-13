@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 import argparse
-import datetime
 import os
 import platform
 from pprint import pprint
@@ -10,47 +9,8 @@ from subprocess import Popen, PIPE
 import sys
 import time
 
+from utilities import check_output_name, get_system_info, get_zonation_info, pad_header
 from zparser import parse_results
-
-
-def get_system_info():
-    ''' Function to retrieve system related information.
-
-    @return list of system variables
-    '''
-    sys_info = []
-    sys_info.append({'Report time': datetime.datetime.now().isoformat()})
-    sys_info.append({'Uname': platform.uname()})
-
-    if platform.system() == 'Linux':
-        sys_info.append({'Version': platform.linux_distribution()})
-    else:
-        sys_info.append({'Version': platform.win32_ver()})
-
-    return sys_info
-
-
-def get_zonation_info():
-    ''' Function to retrieve Zonation version info.
-
-    NOTE: Zonation must be in PATH.
-
-    @return tuple Zonation version number
-    '''
-    version = Popen(['zig3', '-v'], stdout=PIPE)
-    version = version.communicate()[0]
-    version = version.split('\n')[0].strip()
-    version = version.split(':')[1].strip()
-    version = tuple(version.split('.'))
-
-    return version
-
-
-def pad_header(msg, print_width):
-
-    # - 4 is for 2 leading stars and 2 whitespaces
-    nstars = print_width - len(msg) - 4
-    return '\n** ' + msg + ' ' + '*' * nstars
 
 
 def read_run(file_list):
@@ -112,8 +72,8 @@ def run_analysis(file_path, cmd_args):
     '''
 
     t0 = time.time()
-    p = Popen(cmd_args, cwd=os.path.dirname(file_path))
-    p.wait()
+    #p = Popen(cmd_args, cwd=os.path.dirname(file_path))
+    #p.wait()
     t1 = time.time()
 
     total = t1 - t0
@@ -160,6 +120,8 @@ def main():
                         help='yaml file defining a suite of input files')
     parser.add_argument('-o', '--outputfile', dest='output_file', default='',
                         help='name of the output file')
+    parser.add_argument('-x', '--overwrite', dest='overwrite', default=False,
+                        help='overwrite existing result file')
 
     args = parser.parse_args()
 
@@ -191,9 +153,16 @@ def main():
 
     # Construct a suitable output name if it doesn't exist
     if args.output_file == '':
-        'results_' + output['sys_info'][1]['Uname'][0] + '_' + d['sys_info'][1]['Uname'][1] + '.yaml'
+        args.output_file = 'results_' + output['sys_info'][1]['Uname'][0].lower() + '_' + \
+            output['sys_info'][1]['Uname'][1].replace('.', '') + '.yaml'
+        print('WARNING: No output file name provided, using {0}'.format(args.output_file))
 
-    write_output(output, args.output_file)
+        if not args.overwrite and os.path.exists(args.output_file):
+            extant = args.output_file
+            args.output_file = check_output_name(args.output_file)
+            print('WARNING: Output file {0} exists, using {1}'.format(extant, args.output_file))
+
+        write_output(output, args.output_file)
 
 if __name__ == '__main__':
     main()

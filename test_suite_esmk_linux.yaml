@@ -1,0 +1,7 @@
+benchmark_analyses:
+- "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ESMK/analyysi/tee_15_60_5kp_abf_pe.bat"
+- "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ESMK/analyysi/tee_16_60_5kp_abf_pe_w.bat"
+- "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ESMK/analyysi/tee_17_60_5kp_abf_pe_w_cmat.bat"
+- "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ESMK/analyysi/tee_18_60_5kp_abf_pe_w_cmat_cmete.bat"
+- "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ESMK/analyysi/tee_19_60_5kp_abf_pe_w_cmat_cmete_cres.bat"
+- "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ESMK/analyysi/tee_20_60_5kp_abf_pe_w_cmat_cmete_cres_mask.bat"

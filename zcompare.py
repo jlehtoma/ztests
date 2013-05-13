@@ -13,6 +13,8 @@ from scipy.spatial.distance import jaccard
 from scipy.stats import kendalltau
 import yaml
 
+from utilities import check_output_name
+
 
 def raster_differences(raster_dataset_1, raster_dataset_2, tolerance=1e-08):
     ''' Compares the values of two rasters given a certain treshold.
@@ -98,7 +100,7 @@ def raster_pairs(folder1, folder2, suffix='', ext=''):
 
         # FIXME: rasters 2 indexing very fragile
         if raster_name_1 in raster_names_2:
-            pairs.append((raster_1, 
+            pairs.append((raster_1,
                           rasters_2[raster_names_2.index(raster_name_1)]))
         else:
             print('WARNING: Raster {0} not found in other folder'.format(raster_name_1))
@@ -144,6 +146,6 @@ if __name__ == '__main__':
         else:
             print("INFO: All values in all pairs seem to be the same")
 
-    output_file = 'raster_differences.yaml'
+    output_file = check_output_name('raster_differences.yaml')
     with open(output_file, 'w') as outfile:
             outfile.write(yaml.dump(all_differences, canonical=True))
