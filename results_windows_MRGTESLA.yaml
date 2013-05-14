@@ -1,0 +1,102 @@
+---
+!!map {
+  ? !!str "c:\\Users\\admin_jlehtoma\\workspace\\ztests\\ESMK\\analyysi\\tee_15_60_5kp_abf_pe.bat"
+  : !!map {
+    ? !!str "cellrem"
+    : !!int "6217",
+    ? !!str "elapsed"
+    : !!int "6245",
+    ? !!str "init"
+    : !!int "9",
+    ? !!str "measured"
+    : !!float "6246.0",
+  },
+  ? !!str "c:\\Users\\admin_jlehtoma\\workspace\\ztests\\ESMK\\analyysi\\tee_16_60_5kp_abf_pe_w.bat"
+  : !!map {
+    ? !!str "cellrem"
+    : !!int "6152",
+    ? !!str "elapsed"
+    : !!int "6167",
+    ? !!str "init"
+    : !!int "9",
+    ? !!str "measured"
+    : !!float "6167.0",
+  },
+  ? !!str "c:\\Users\\admin_jlehtoma\\workspace\\ztests\\ESMK\\analyysi\\tee_17_60_5kp_abf_pe_w_cmat.bat"
+  : !!map {
+    ? !!str "cellrem"
+    : !!int "6289",
+    ? !!str "elapsed"
+    : !!int "6478",
+    ? !!str "init"
+    : !!int "171",
+    ? !!str "measured"
+    : !!float "6479.0",
+  },
+  ? !!str "c:\\Users\\admin_jlehtoma\\workspace\\ztests\\ESMK\\analyysi\\tee_18_60_5kp_abf_pe_w_cmat_cmete.bat"
+  : !!map {
+    ? !!str "cellrem"
+    : !!int "6906",
+    ? !!str "elapsed"
+    : !!int "7553",
+    ? !!str "init"
+    : !!int "619",
+    ? !!str "measured"
+    : !!float "7554.0",
+  },
+  ? !!str "c:\\Users\\admin_jlehtoma\\workspace\\ztests\\ESMK\\analyysi\\tee_19_60_5kp_abf_pe_w_cmat_cmete_cres.bat"
+  : !!map {
+    ? !!str "cellrem"
+    : !!int "4598",
+    ? !!str "elapsed"
+    : !!int "5684",
+    ? !!str "init"
+    : !!int "1067",
+    ? !!str "measured"
+    : !!float "5684.0",
+  },
+  ? !!str "c:\\Users\\admin_jlehtoma\\workspace\\ztests\\ESMK\\analyysi\\tee_20_60_5kp_abf_pe_w_cmat_cmete_cres_mask.bat"
+  : !!map {
+    ? !!str "cellrem"
+    : !!int "4665",
+    ? !!str "elapsed"
+    : !!int "5756",
+    ? !!str "init"
+    : !!int "1058",
+    ? !!str "measured"
+    : !!float "5757.0",
+  },
+  ? !!str "sys_info"
+  : !!seq [
+    !!map {
+      ? !!str "Report time"
+      : !!str "2013-05-13T19:20:06.789000",
+    },
+    !!map {
+      ? !!str "Uname"
+      : !!python/tuple [
+        !!str "Windows",
+        !!str "MRGTESLA",
+        !!str "post2008Server",
+        !!str "6.1.7601",
+        !!str "x86",
+        !!str "Intel64 Family 6 Model 44 Stepping 2, GenuineIntel",
+      ],
+    },
+    !!map {
+      ? !!str "Version"
+      : !!python/tuple [
+        !!str "post2008Server",
+        !!str "6.1.7601",
+        !!str "SP1",
+        !!str "Multiprocessor Free",
+      ],
+    },
+  ],
+  ? !!str "z_info"
+  : !!python/tuple [
+    !!str "3",
+    !!str "1",
+    !!str "7",
+  ],
+}
