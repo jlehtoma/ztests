@@ -1,0 +1,108 @@
+---
+!!map {
+  ? !!str "c:\\Users\\localadmin_jlehtoma\\Documents\\GitHub\\ztests\\ESMK\\analyysi\\\
+    tee_15_60_5kp_abf_pe.bat"
+  : !!map {
+    ? !!str "cellrem"
+    : !!int "5116",
+    ? !!str "elapsed"
+    : !!int "5129",
+    ? !!str "init"
+    : !!int "8",
+    ? !!str "measured"
+    : !!float "5130.0",
+  },
+  ? !!str "c:\\Users\\localadmin_jlehtoma\\Documents\\GitHub\\ztests\\ESMK\\analyysi\\\
+    tee_16_60_5kp_abf_pe_w.bat"
+  : !!map {
+    ? !!str "cellrem"
+    : !!int "4953",
+    ? !!str "elapsed"
+    : !!int "4963",
+    ? !!str "init"
+    : !!int "7",
+    ? !!str "measured"
+    : !!float "4964.0",
+  },
+  ? !!str "c:\\Users\\localadmin_jlehtoma\\Documents\\GitHub\\ztests\\ESMK\\analyysi\\\
+    tee_17_60_5kp_abf_pe_w_cmat.bat"
+  : !!map {
+    ? !!str "cellrem"
+    : !!int "4806",
+    ? !!str "elapsed"
+    : !!int "4923",
+    ? !!str "init"
+    : !!int "112",
+    ? !!str "measured"
+    : !!float "4924.0",
+  },
+  ? !!str "c:\\Users\\localadmin_jlehtoma\\Documents\\GitHub\\ztests\\ESMK\\analyysi\\\
+    tee_18_60_5kp_abf_pe_w_cmat_cmete.bat"
+  : !!map {
+    ? !!str "cellrem"
+    : !!int "5297",
+    ? !!str "elapsed"
+    : !!int "5733",
+    ? !!str "init"
+    : !!int "427",
+    ? !!str "measured"
+    : !!float "5734.0",
+  },
+  ? !!str "c:\\Users\\localadmin_jlehtoma\\Documents\\GitHub\\ztests\\ESMK\\analyysi\\\
+    tee_19_60_5kp_abf_pe_w_cmat_cmete_cres.bat"
+  : !!map {
+    ? !!str "cellrem"
+    : !!int "3315",
+    ? !!str "elapsed"
+    : !!int "4039",
+    ? !!str "init"
+    : !!int "715",
+    ? !!str "measured"
+    : !!float "4039.0",
+  },
+  ? !!str "c:\\Users\\localadmin_jlehtoma\\Documents\\GitHub\\ztests\\ESMK\\analyysi\\\
+    tee_20_60_5kp_abf_pe_w_cmat_cmete_cres_mask.bat"
+  : !!map {
+    ? !!str "cellrem"
+    : !!int "3466",
+    ? !!str "elapsed"
+    : !!int "4188",
+    ? !!str "init"
+    : !!int "713",
+    ? !!str "measured"
+    : !!float "4189.0",
+  },
+  ? !!str "sys_info"
+  : !!seq [
+    !!map {
+      ? !!str "Report time"
+      : !!str "2013-05-14T08:00:41.266000",
+    },
+    !!map {
+      ? !!str "Uname"
+      : !!python/tuple [
+        !!str "Windows",
+        !!str "LH2-BIOTI25",
+        !!str "7",
+        !!str "6.1.7601",
+        !!str "AMD64",
+        !!str "Intel64 Family 6 Model 58 Stepping 9, GenuineIntel",
+      ],
+    },
+    !!map {
+      ? !!str "Version"
+      : !!python/tuple [
+        !!str "7",
+        !!str "6.1.7601",
+        !!str "SP1",
+        !!python/unicode "Multiprocessor Free",
+      ],
+    },
+  ],
+  ? !!str "z_info"
+  : !!python/tuple [
+    !!str "3",
+    !!str "1",
+    !!str "9",
+  ],
+}
