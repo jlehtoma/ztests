@@ -1,0 +1,101 @@
+---
+!!map {
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ztests/ESMK/analyysi/tee_15_60_5kp_abf_pe.bat"
+  : !!map {
+    ? !!str "cellrem"
+    : !!int "2627",
+    ? !!str "elapsed"
+    : !!int "2634",
+    ? !!str "init"
+    : !!int "5",
+    ? !!str "measured"
+    : !!float "2634.0",
+  },
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ztests/ESMK/analyysi/tee_16_60_5kp_abf_pe_w.bat"
+  : !!map {
+    ? !!str "cellrem"
+    : !!int "2600",
+    ? !!str "elapsed"
+    : !!int "2608",
+    ? !!str "init"
+    : !!int "5",
+    ? !!str "measured"
+    : !!float "2608.0",
+  },
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ztests/ESMK/analyysi/tee_17_60_5kp_abf_pe_w_cmat.bat"
+  : !!map {
+    ? !!str "cellrem"
+    : !!int "2660",
+    ? !!str "elapsed"
+    : !!int "2757",
+    ? !!str "init"
+    : !!int "94",
+    ? !!str "measured"
+    : !!float "2758.0",
+  },
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ztests/ESMK/analyysi/tee_18_60_5kp_abf_pe_w_cmat_cmete.bat"
+  : !!map {
+    ? !!str "cellrem"
+    : !!int "3010",
+    ? !!str "elapsed"
+    : !!int "3364",
+    ? !!str "init"
+    : !!int "349",
+    ? !!str "measured"
+    : !!float "3364.0",
+  },
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ztests/ESMK/analyysi/tee_19_60_5kp_abf_pe_w_cmat_cmete_cres.bat"
+  : !!map {
+    ? !!str "cellrem"
+    : !!int "1913",
+    ? !!str "elapsed"
+    : !!int "2515",
+    ? !!str "init"
+    : !!int "597",
+    ? !!str "measured"
+    : !!float "2516.0",
+  },
+  ? !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ztests/ESMK/analyysi/tee_20_60_5kp_abf_pe_w_cmat_cmete_cres_mask.bat"
+  : !!map {
+    ? !!str "cellrem"
+    : !!int "1905",
+    ? !!str "elapsed"
+    : !!int "2507",
+    ? !!str "init"
+    : !!int "597",
+    ? !!str "measured"
+    : !!float "2508.0",
+  },
+  ? !!str "sys_info"
+  : !!seq [
+    !!map {
+      ? !!str "Report time"
+      : !!str "2013-05-13T19:14:25.126874",
+    },
+    !!map {
+      ? !!str "Uname"
+      : !!python/tuple [
+        !!str "Linux",
+        !!str "BIOTI25.site",
+        !!str "3.7.10-1.4-desktop",
+        !!str "#1 SMP PREEMPT Fri Apr 19 12:06:34 UTC 2013 (8ef74f8)",
+        !!str "x86_64",
+        !!str "x86_64",
+      ],
+    },
+    !!map {
+      ? !!str "Version"
+      : !!python/tuple [
+        !!str "openSUSE ",
+        !!str "12.3",
+        !!str "x86_64",
+      ],
+    },
+  ],
+  ? !!str "z_info"
+  : !!python/tuple [
+    !!str "3",
+    !!str "1",
+    !!str "9",
+  ],
+}
