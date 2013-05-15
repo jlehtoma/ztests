@@ -3,7 +3,6 @@
 
 import argparse
 import os
-import platform
 from pprint import pprint
 from subprocess import Popen, PIPE
 import sys

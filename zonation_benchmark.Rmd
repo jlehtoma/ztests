@@ -2,7 +2,6 @@
 # set global chunk options: images will be 7x5 inches
 opts_chunk$set(fig.width=9, fig.height=5)
 library(ggplot2)
-library(reshape2)
 library(yaml)
 
 custom.theme <- theme(plot.title=element_text(face="bold", size=20),

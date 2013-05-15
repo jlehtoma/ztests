@@ -99,7 +99,7 @@ All variants are run using:
 Different analysis options used:
 
 <!-- html table generated in R 3.0.0 by xtable 1.7-1 package -->
-<!-- Wed May 15 13:04:57 2013 -->
+<!-- Wed May 15 14:45:02 2013 -->
 <TABLE border=1>
 <TR> <TH>  </TH> <TH> id </TH> <TH> nfeatures </TH> <TH> weights </TH> <TH> condition </TH> <TH> cmatrix </TH> <TH> cwkh </TH> <TH> cres </TH> <TH> mask </TH>  </TR>
   <TR> <TD align="right"> 1 </TD> <TD align="right">  15 </TD> <TD align="right"> 20.00 </TD> <TD> no </TD> <TD> yes </TD> <TD> no </TD> <TD> no </TD> <TD> no </TD> <TD> no </TD> </TR>
@@ -135,7 +135,7 @@ resulting run-info file, so they are the ones reported by Zonation.
 Out of these comparisons, the Linux machine performs the fastest. By scaling 
 MRGTESLA to 1.0, the others perform in a following way:
 <!-- html table generated in R 3.0.0 by xtable 1.7-1 package -->
-<!-- Wed May 15 13:04:57 2013 -->
+<!-- Wed May 15 14:45:02 2013 -->
 <TABLE border=1>
 <TR> <TH>  </TH> <TH> MRGTESLA.win </TH> <TH> LH2BIOTI25.win </TH> <TH> LH2BIOTI25.linux </TH>  </TR>
   <TR> <TD align="right"> 1 </TD> <TD align="right"> 1.00 </TD> <TD align="right"> 0.82 </TD> <TD align="right"> 0.42 </TD> </TR>
@@ -149,7 +149,7 @@ MRGTESLA to 1.0, the others perform in a following way:
 Comparing Zonation on different operating systems on the same machine show the
 following:
 <!-- html table generated in R 3.0.0 by xtable 1.7-1 package -->
-<!-- Wed May 15 13:04:57 2013 -->
+<!-- Wed May 15 14:45:02 2013 -->
 <TABLE border=1>
 <TR> <TH>  </TH> <TH> LH2BIOTI25.win </TH> <TH> LH2BIOTI25.linux </TH>  </TR>
   <TR> <TD align="right"> 1 </TD> <TD align="right"> 1.00 </TD> <TD align="right"> 0.51 </TD> </TR>
@@ -212,7 +212,7 @@ two cells
 `std`: standard deviation of all differences  
 
 <!-- html table generated in R 3.0.0 by xtable 1.7-1 package -->
-<!-- Wed May 15 13:04:57 2013 -->
+<!-- Wed May 15 14:45:02 2013 -->
 <TABLE border=1>
 <TR> <TH>  </TH> <TH> run </TH> <TH> jaccard.threshold </TH> <TH> jaccard.index </TH> <TH> kendall.tau </TH> <TH> kendall.tau.p </TH> <TH> max </TH> <TH> mean </TH> <TH> min </TH> <TH> std </TH>  </TR>
   <TR> <TD align="right"> 5 </TD> <TD> 15 </TD> <TD align="right"> 0.99 </TD> <TD align="right"> 1.00000 </TD> <TD align="right"> 1.00000 </TD> <TD align="right"> 0.000 </TD> <TD align="right"> 0.00001 </TD> <TD align="right"> 0.00 </TD> <TD align="right"> -0.00001 </TD> <TD align="right"> 0.00000 </TD> </TR>
