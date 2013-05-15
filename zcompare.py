@@ -116,8 +116,8 @@ def raster_pairs(folder1, folder2, suffix='', ext=''):
 
 if __name__ == '__main__':
 
-    folder_1 = '/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ESMK/analyysi/output_win'
-    folder_2 = '/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ESMK/analyysi/output_linux'
+    folder_1 = '/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ztests/ESMK/output_linux_LH2-BIOTI25'
+    folder_2 = '/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ztests/ESMK/output_windows_LH2-BIOTI25'
 
     pairs = raster_pairs(folder_1, folder_2, suffix='.rank.*', ext='.img')
 

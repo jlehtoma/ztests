@@ -17,10 +17,10 @@ Previous benchmark with Zonation tutorial material can be found
 * A static build of Zonation performs ~1.8 times faster on Linux than
 on Windows running on a machine with new-generation CPU (i.e. on the same 
 computer).
-* Zonation runinnig on a Windows machine with new-generation CPU performs ~1.4 
+* Zonation runinnig on a Windows machine with new-generation CPU performs ~1.3 
 times faster than a Windows machine with old-generation CPU (i.e. on different 
 computers). 
-* A static build of Zonation performs 2.6 times faster on Linux machine with 
+* A static build of Zonation performs ~2.3 times faster on Linux machine with 
 new-generation CPU than on Windows running on a machine with old-generation CPU
 (i.e. on different computers).
 
@@ -98,8 +98,8 @@ All variants are run using:
 
 Different analysis options used:
 
-<!-- html table generated in R 2.15.2 by xtable 1.7-1 package -->
-<!-- Tue May 14 17:55:17 2013 -->
+<!-- html table generated in R 3.0.0 by xtable 1.7-1 package -->
+<!-- Wed May 15 13:04:57 2013 -->
 <TABLE border=1>
 <TR> <TH>  </TH> <TH> id </TH> <TH> nfeatures </TH> <TH> weights </TH> <TH> condition </TH> <TH> cmatrix </TH> <TH> cwkh </TH> <TH> cres </TH> <TH> mask </TH>  </TR>
   <TR> <TD align="right"> 1 </TD> <TD align="right">  15 </TD> <TD align="right"> 20.00 </TD> <TD> no </TD> <TD> yes </TD> <TD> no </TD> <TD> no </TD> <TD> no </TD> <TD> no </TD> </TR>
@@ -134,8 +134,8 @@ resulting run-info file, so they are the ones reported by Zonation.
 
 Out of these comparisons, the Linux machine performs the fastest. By scaling 
 MRGTESLA to 1.0, the others perform in a following way:
-<!-- html table generated in R 2.15.2 by xtable 1.7-1 package -->
-<!-- Tue May 14 17:55:18 2013 -->
+<!-- html table generated in R 3.0.0 by xtable 1.7-1 package -->
+<!-- Wed May 15 13:04:57 2013 -->
 <TABLE border=1>
 <TR> <TH>  </TH> <TH> MRGTESLA.win </TH> <TH> LH2BIOTI25.win </TH> <TH> LH2BIOTI25.linux </TH>  </TR>
   <TR> <TD align="right"> 1 </TD> <TD align="right"> 1.00 </TD> <TD align="right"> 0.82 </TD> <TD align="right"> 0.42 </TD> </TR>
@@ -148,8 +148,8 @@ MRGTESLA to 1.0, the others perform in a following way:
 
 Comparing Zonation on different operating systems on the same machine show the
 following:
-<!-- html table generated in R 2.15.2 by xtable 1.7-1 package -->
-<!-- Tue May 14 17:55:18 2013 -->
+<!-- html table generated in R 3.0.0 by xtable 1.7-1 package -->
+<!-- Wed May 15 13:04:57 2013 -->
 <TABLE border=1>
 <TR> <TH>  </TH> <TH> LH2BIOTI25.win </TH> <TH> LH2BIOTI25.linux </TH>  </TR>
   <TR> <TD align="right"> 1 </TD> <TD align="right"> 1.00 </TD> <TD align="right"> 0.51 </TD> </TR>
@@ -211,38 +211,24 @@ two cells
 two cells  
 `std`: standard deviation of all differences  
 
-
-```
-## Warning: cannot open file 'raster_differences.yaml': No such file or
-## directory
-```
-
-```
-## Error: cannot open the connection
-```
-
-```
-## Error: object 'diffs' not found
-```
-
-```
-## Error: object 'df.diffs' not found
-```
-
-```
-## Error: object 'df.diffs' not found
-```
-
-```
-## Error: object 'df.diffs' not found
-```
+<!-- html table generated in R 3.0.0 by xtable 1.7-1 package -->
+<!-- Wed May 15 13:04:57 2013 -->
+<TABLE border=1>
+<TR> <TH>  </TH> <TH> run </TH> <TH> jaccard.threshold </TH> <TH> jaccard.index </TH> <TH> kendall.tau </TH> <TH> kendall.tau.p </TH> <TH> max </TH> <TH> mean </TH> <TH> min </TH> <TH> std </TH>  </TR>
+  <TR> <TD align="right"> 5 </TD> <TD> 15 </TD> <TD align="right"> 0.99 </TD> <TD align="right"> 1.00000 </TD> <TD align="right"> 1.00000 </TD> <TD align="right"> 0.000 </TD> <TD align="right"> 0.00001 </TD> <TD align="right"> 0.00 </TD> <TD align="right"> -0.00001 </TD> <TD align="right"> 0.00000 </TD> </TR>
+  <TR> <TD align="right"> 2 </TD> <TD> 17 </TD> <TD align="right"> 0.99 </TD> <TD align="right"> 0.99813 </TD> <TD align="right"> 0.99993 </TD> <TD align="right"> 0.000 </TD> <TD align="right"> 0.00064 </TD> <TD align="right"> 0.00 </TD> <TD align="right"> -0.00064 </TD> <TD align="right"> 0.00007 </TD> </TR>
+  <TR> <TD align="right"> 4 </TD> <TD> 18 </TD> <TD align="right"> 0.99 </TD> <TD align="right"> 0.99546 </TD> <TD align="right"> 0.99993 </TD> <TD align="right"> 0.000 </TD> <TD align="right"> 0.00050 </TD> <TD align="right"> 0.00 </TD> <TD align="right"> -0.00050 </TD> <TD align="right"> 0.00007 </TD> </TR>
+  <TR> <TD align="right"> 1 </TD> <TD> 19 </TD> <TD align="right"> 0.99 </TD> <TD align="right"> 0.99753 </TD> <TD align="right"> 0.99984 </TD> <TD align="right"> 0.000 </TD> <TD align="right"> 0.10445 </TD> <TD align="right"> 0.00 </TD> <TD align="right"> -0.13069 </TD> <TD align="right"> 0.00061 </TD> </TR>
+  <TR> <TD align="right"> 3 </TD> <TD> 20 </TD> <TD align="right"> 0.99 </TD> <TD align="right"> 0.99778 </TD> <TD align="right"> 0.99984 </TD> <TD align="right"> 0.000 </TD> <TD align="right"> 0.10431 </TD> <TD align="right"> 0.00 </TD> <TD align="right"> -0.13077 </TD> <TD align="right"> 0.00061 </TD> </TR>
+   </TABLE>
 
 
 Observations:
 * Zonation running on both operating systems produces _exactly_ the same results
-for variants 15 and 16.
-* Variants 17, 18, 19, and 20 have slightly different, but _very similar_
-results.
+for variant 16.
+* Variants 15, 17, 18, 19, and 20 have slightly different, but _very similar_
+results. Max and min differences in 19 and 20 (+ std) are very large. This 
+should be investigated further.
 * The complexity of the variants is 15 < 16 < 17 < 18 < 19 < 20. More 
 specically, connectivity matrix is introduced in variant 17 and varying number
 of interactions in 18 and onwards.

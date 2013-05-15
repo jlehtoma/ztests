@@ -1,0 +1,124 @@
+---
+!!seq [
+  !!map {
+    ? !!str "file1"
+    : !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ztests/ESMK/output_linux_LH2-BIOTI25/result_19_60_5kp_abf_pe_w_cmat_cmete_cres.rank.compressed.img",
+    ? !!str "file2"
+    : !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ztests/ESMK/output_windows_LH2-BIOTI25/result_19_60_5kp_abf_pe_w_cmat_cmete_cres.rank.compressed.img",
+    ? !!str "jaccard"
+    : !!python/tuple [
+      !!float "0.99",
+      !!float "0.9975254399919198",
+    ],
+    ? !!str "kendall_tau"
+    : !!python/tuple [
+      !!float "0.9998380530148854",
+      !!float "0.0",
+    ],
+    ? !!str "max"
+    : !!float "0.104454904794693",
+    ? !!str "mean"
+    : !!float "0.0",
+    ? !!str "min"
+    : !!float "-0.1306880321353674",
+    ? !!str "std"
+    : !!float "0.0006055704207116739",
+  },
+  !!map {
+    ? !!str "file1"
+    : !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ztests/ESMK/output_linux_LH2-BIOTI25/result_17_60_5kp_abf_pe_w_cmat.rank.compressed.img",
+    ? !!str "file2"
+    : !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ztests/ESMK/output_windows_LH2-BIOTI25/result_17_60_5kp_abf_pe_w_cmat.rank.compressed.img",
+    ? !!str "jaccard"
+    : !!python/tuple [
+      !!float "0.99",
+      !!float "0.9981308883332071",
+    ],
+    ? !!str "kendall_tau"
+    : !!python/tuple [
+      !!float "0.9999251175890557",
+      !!float "0.0",
+    ],
+    ? !!str "max"
+    : !!float "0.0006378889083862305",
+    ? !!str "mean"
+    : !!float "0.0",
+    ? !!str "min"
+    : !!float "-0.0006383657455444336",
+    ? !!str "std"
+    : !!float "6.974866392202449e-05",
+  },
+  !!map {
+    ? !!str "file1"
+    : !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ztests/ESMK/output_linux_LH2-BIOTI25/result_20_60_5kp_abf_pe_w_cmat_cmete_cres_mask.rank.compressed.img",
+    ? !!str "file2"
+    : !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ztests/ESMK/output_windows_LH2-BIOTI25/result_20_60_5kp_abf_pe_w_cmat_cmete_cres_mask.rank.compressed.img",
+    ? !!str "jaccard"
+    : !!python/tuple [
+      !!float "0.99",
+      !!float "0.9977776655386635",
+    ],
+    ? !!str "kendall_tau"
+    : !!python/tuple [
+      !!float "0.9998383551998217",
+      !!float "0.0",
+    ],
+    ? !!str "max"
+    : !!float "0.1043072510510683",
+    ? !!str "mean"
+    : !!float "0.0",
+    ? !!str "min"
+    : !!float "-0.1307734828442335",
+    ? !!str "std"
+    : !!float "0.00060558075817351",
+  },
+  !!map {
+    ? !!str "file1"
+    : !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ztests/ESMK/output_linux_LH2-BIOTI25/result_18_60_5kp_abf_pe_w_cmat_cmete.rank.compressed.img",
+    ? !!str "file2"
+    : !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ztests/ESMK/output_windows_LH2-BIOTI25/result_18_60_5kp_abf_pe_w_cmat_cmete.rank.compressed.img",
+    ? !!str "jaccard"
+    : !!python/tuple [
+      !!float "0.99",
+      !!float "0.995459590354152",
+    ],
+    ? !!str "kendall_tau"
+    : !!python/tuple [
+      !!float "0.9999253721589992",
+      !!float "0.0",
+    ],
+    ? !!str "max"
+    : !!float "0.0005013644695281982",
+    ? !!str "mean"
+    : !!float "0.0",
+    ? !!str "min"
+    : !!float "-0.0005021095275878906",
+    ? !!str "std"
+    : !!float "6.952103135339373e-05",
+  },
+  !!map {
+    ? !!str "file1"
+    : !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ztests/ESMK/output_linux_LH2-BIOTI25/result_15_60_5kp_abf_pe.rank.compressed.img",
+    ? !!str "file2"
+    : !!str "/home/jlehtoma/opt/zonation-3.1.9-GNU-Linux/ztests/ESMK/output_windows_LH2-BIOTI25/result_15_60_5kp_abf_pe.rank.compressed.img",
+    ? !!str "jaccard"
+    : !!python/tuple [
+      !!float "0.99",
+      !!float "1.0",
+    ],
+    ? !!str "kendall_tau"
+    : !!python/tuple [
+      !!float "0.9999999999707697",
+      !!float "0.0",
+    ],
+    ? !!str "max"
+    : !!float "1.233816146850586e-05",
+    ? !!str "mean"
+    : !!float "0.0",
+    ? !!str "min"
+    : !!float "-1.341104507446289e-05",
+    ? !!str "std"
+    : !!float "1.0205889743041093e-08",
+  },
+  !!map {}
+]

@@ -14,16 +14,19 @@ get.times <- function(file.name, data) {
 
 differences2df <- function(x) {
   dat <- do.call("rbind", lapply(diffs, function(x) {
-                                  c("file1"=basename(x$file1), 
-                                    "file2"=basename(x$file2), 
-                                    "jaccard.threshold"=x$jaccard[[1]], 
-                                    "jaccard.index"=x$jaccard[[2]],
-                                    "kendall.tau"=x$kendall_tau[[1]],
-                                    "kendall.tau.p"=x$kendall_tau[[2]],
-                                    "max"=x$max,
-                                    "mean"=x$mean,
-                                    "min"=x$min,
-                                    "std"=x$std)}
+                                  if (length(x) > 0) {
+                                    c("file1"=basename(x$file1), 
+                                      "file2"=basename(x$file2), 
+                                      "jaccard.threshold"=x$jaccard[[1]], 
+                                      "jaccard.index"=x$jaccard[[2]],
+                                      "kendall.tau"=x$kendall_tau[[1]],
+                                      "kendall.tau.p"=x$kendall_tau[[2]],
+                                      "max"=x$max,
+                                      "mean"=x$mean,
+                                      "min"=x$min,
+                                      "std"=x$std)
+                                  }
+                                }
                                 )
                 )
   dat <- data.frame(dat, stringsAsFactors=FALSE)
