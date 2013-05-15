@@ -33,3 +33,4 @@ For compiling the Knitr-based report, following R packages are needed:
 * [Knitr](http://yihui.name/knitr/)
 * [yaml](http://cran.r-project.org/web/packages/yaml/)
 * [ggplot2](http://ggplot2.org/)
+
