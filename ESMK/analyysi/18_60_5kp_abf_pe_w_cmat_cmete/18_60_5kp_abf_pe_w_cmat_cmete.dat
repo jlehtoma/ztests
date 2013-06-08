@@ -48,4 +48,4 @@ apply to representation = 0
 
 [vmat]
 load precooked vmat = 
-save vmat = vmat_18.bin
+save vmat = 
