@@ -45,3 +45,7 @@ load similarity matrix = 0
 connectivity similarity matrix file = 
 apply to connectivity = 0
 apply to representation = 0
+
+[vmat]
+load precooked vmat = 
+save vmat = vmat_15.bin

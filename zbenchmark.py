@@ -12,10 +12,15 @@ from utilities import check_output_name, get_system_info, get_zonation_info, pad
 from zparser import parse_results
 
 
-def read_run(file_list):
+def read_run(file_list, executable=None):
     ''' Reads in the Zonation bat/sh files and return a dict of command sequences.
 
     If an item in the list does not exist, it is removed from the file list.
+
+    @param file_list String list of input file paths
+    @param executable String for overriding executable
+    @return cmd_sequences list of comman sequences
+
     '''
     cmd_sequences = {}
 
@@ -47,6 +52,10 @@ def read_run(file_list):
                     # Remove 'call' arg
                     if 'call' in sequence:
                         sequence.remove('call')
+                    # Override executable if provided
+                    if executable:
+                        sequence[0] = executable
+
                     cmd_sequences[file_path] = sequence
 
     if cmd_sequences:
@@ -120,8 +129,10 @@ def main():
                         help='yaml file defining a suite of input files')
     parser.add_argument('-o', '--outputfile', dest='output_file', default='',
                         help='name of the output file')
-    parser.add_argument('-x', '--overwrite', dest='overwrite', default=False,
+    parser.add_argument('-w', '--overwrite', dest='overwrite', default=False,
                         help='overwrite existing result file')
+    parser.add_argument('-x', '--executable', dest='executable', default='zig3',
+                        help='select Zonation executable (must in PATH)')
 
     args = parser.parse_args()
 
@@ -141,7 +152,7 @@ def main():
 
     args.input_files = [os.path.join(os.path.abspath(__file__), os.path.abspath(item)) for item in args.input_files]
 
-    cmd_args = read_run(args.input_files)
+    cmd_args = read_run(args.input_files, args.executable)
 
     # Collect output to a dict
     output = {}
